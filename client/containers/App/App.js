@@ -46,6 +46,7 @@ class App extends Component {
   // returns an object to update state, or null to indicate that the new props do not require any state updates
   // called every time a component is rendered
   static getDerivedStateFromProps(props, state) {
+    console.log('>>>>>>>>>>>>>>>> APP > getDerivedStateFromProps() <<<<<<<<<<<<<<');
     const { prevProps } = state;
     // Compare the incoming prop to previous prop
 
@@ -67,10 +68,24 @@ class App extends Component {
   // && network requests as long as you compare the current props to previous props 
   // (e.g. a network request may not be necessary if the props have not changed)
   componentDidUpdate(prevProps) {
+    console.log('>>>>>>>>>>>>>>>> APP > componentDidUpdate() <<<<<<<<<<<<<<');
     if (this.props.location !== prevProps.location) {
       window.scrollTo(0, 0);
     }
   }
+
+  // UNSAFE_componentWillMount() {
+  //   console.log('>>>>>>>>>>>>>>>> APP > UNSAFE_componentWillMount() <<<<<<<<<<<<<<');
+  // }
+
+  componentDidMount() {
+    console.log('>>>>>>>>>>>>>>>> APP > componentDidMount() <<<<<<<<<<<<<<');
+  }
+
+  componentWillUnmount() {
+    console.log('>>>>>>>>>>>>>>>> APP > componentWillUnmount() <<<<<<<<<<<<<<');
+  }
+
 
   render() {
 

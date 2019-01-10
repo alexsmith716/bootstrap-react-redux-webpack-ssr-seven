@@ -29,7 +29,7 @@ function getParams(match) {
 
 const asyncMatchRoutes = async (routes, pathname) => {
 
-  const match = matchRoutes(routes, pathname);
+  const match = matchRoutes(routes, pathname); // Returns an array of matched routes
 
   const params = getParams(match);
 

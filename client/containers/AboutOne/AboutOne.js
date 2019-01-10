@@ -6,6 +6,18 @@ import Helmet from 'react-helmet';
 
 class AboutOne extends Component {
 
+  UNSAFE_componentWillMount() {
+    console.log('>>>>>>>>>>>>>>>> ABOUT-ONE > UNSAFE_componentWillMount() <<<<<<<<<<<<<<');
+  }
+
+  componentDidMount() {
+    console.log('>>>>>>>>>>>>>>>> ABOUT-ONE > componentDidMount() <<<<<<<<<<<<<<');
+  }
+
+  componentWillUnmount() {
+    console.log('>>>>>>>>>>>>>>>> ABOUT-ONE > componentWillUnmount() <<<<<<<<<<<<<<');
+  }
+
   render() {
 
     const aboutImageMain = require('../../assets/images/about-750-450.png');
@@ -16,7 +28,7 @@ class AboutOne extends Component {
 
       <div className="container">
 
-        <h1 className={`mt-4 mb-3 ${styles.uniqueColor}`}>About One</h1>
+        <h1 className={`mt-4 mb-3 ${styles.uniqueColor}`}>About One!</h1>
 
         <div className="row">
           <div className="col-lg-6">
