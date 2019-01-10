@@ -5,6 +5,18 @@ import TicTacToe from '../../../components/games/boardGames/TicTacToe/TicTacToe'
 
 class BoardGames extends Component {
 
+  UNSAFE_componentWillMount() {
+    console.log('>>>>>>>>>>>>>>>> BOARDGAMES > UNSAFE_componentWillMount() <<<<<<<<<<<<<<');
+  }
+
+  componentDidMount() {
+    console.log('>>>>>>>>>>>>>>>> BOARDGAMES > componentDidMount() <<<<<<<<<<<<<<');
+  }
+
+  componentWillUnmount() {
+    console.log('>>>>>>>>>>>>>>>> BOARDGAMES > componentWillUnmount() <<<<<<<<<<<<<<');
+  }
+
   render() {
 
     const styles = require('./scss/BoardGames.scss');

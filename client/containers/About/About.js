@@ -10,6 +10,24 @@ class About extends Component {
     // componentHourlyState: false
   };
 
+
+  UNSAFE_componentWillMount() {
+    console.log('>>>>>>>>>>>>>>>> ABOUT > UNSAFE_componentWillMount() <<<<<<<<<<<<<<');
+  }
+
+  componentDidMount() {
+    console.log('>>>>>>>>>>>>>>>> ABOUT > componentDidMount() <<<<<<<<<<<<<<');
+  }
+
+  componentWillUnmount() {
+    console.log('>>>>>>>>>>>>>>>> ABOUT > componentWillUnmount() <<<<<<<<<<<<<<');
+  }
+
+  componentDidUpdate() {
+    console.log('>>>>>>>>>>>>>>>> ABOUT > componentDidUpdate() <<<<<<<<<<<<<<');
+    this._isMounted = false;
+  }
+
   handleButtonState = () => this.setState({ componentButtonState: !this.state.componentButtonState });
 
   render() {
@@ -27,7 +45,7 @@ class About extends Component {
 
         <Helmet title="About Us" />
 
-        <h1 className={`mt-4 mb-3 ${styles.aboutUniqueColor}`}>About</h1>
+        <h1 className={`mt-4 mb-3 ${styles.aboutUniqueColor}`}>About!</h1>
 
         <div className="row">
           <div className="col-lg-6">
