@@ -28,7 +28,7 @@ class AboutOne extends Component {
 
       <div className="container">
 
-        <h1 className={`mt-4 mb-3 ${styles.uniqueColor}`}>About One!</h1>
+        <h1 className={`mt-4 mb-3 ${styles.uniqueColor}`}>About One</h1>
 
         <div className="row">
           <div className="col-lg-6">

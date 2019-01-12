@@ -77,6 +77,10 @@ class ReduxAsyncConnect extends Component {
     console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > componentWillReceiveProps() > __CLIENT__ ?: ', __CLIENT__);
     console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > componentWillReceiveProps() > __SERVER__ ?: ', __SERVER__);
 
+    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > componentWillReceiveProps() > history:', history);
+    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > componentWillReceiveProps() > location:', location);
+    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > componentWillReceiveProps() > routes:', routes);
+
     // test if location has changed
     // if location changed, update the state in response to location prop changes
     // a page refresh has both 'locations' returning false (same key values)
@@ -97,6 +101,8 @@ class ReduxAsyncConnect extends Component {
 
       // load data while the old screen remains
       const { components, match, params } = await asyncMatchRoutes(routes, nextProps.location.pathname);
+
+      console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > componentWillReceiveProps() > navigated > components:', components);
 
       const triggerLocals = {
         match,
