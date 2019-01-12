@@ -6,8 +6,19 @@ App is a continuation of repo `bootstrap-react-redux-webpack-ssr-six`. Picks up 
 
 (made several changes to `bootstrap-react-redux-webpack-ssr-six` and simply decided to revert back to last push (Git))
 
-Initial push of this app is `refactor(dev config devtool): using devtool inline-source-map for client and source-map for server`. Not seeing `Errors` / `Warnings` so far (will change) with webpack HMR or with `sourceMap`.
+Initial push of this app is `refactor(dev config devtool): using devtool inline-source-map for client and source-map for server`.
 
+
+### ERRORS/WARNINGS:
+
+#### Warning: Can't perform a React state update on an unmounted component
+
+* Reproducible: 
+
+> SSR route
+> SPA route
+> edit SSR'd route
+> SPA SSR'd/edited route
 
 transform static class properties && properties declared with the property initializer syntax
 https://babeljs.io/docs/en/next/babel-plugin-proposal-class-properties.html
