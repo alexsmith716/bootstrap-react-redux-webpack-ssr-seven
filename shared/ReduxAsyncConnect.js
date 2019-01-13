@@ -5,6 +5,20 @@ import { trigger } from 'redial';
 // import NProgress from 'nprogress';
 import asyncMatchRoutes from '../server/utils/asyncMatchRoutes';
 
+// https://github.com/markdalgleish/redial
+// https://github.com/ReactTraining/history
+// https://github.com/ReactTraining/react-router/blob/4abe54152400fb987e31d063ad85293551db0032/packages/react-router/docs/api/withRouter.md
+// https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/api/Route.md#route
+// https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
+// https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/api/location.md#location
+
+// Server-side Data Fetching ============================================================================
+
+// WHAT IS <ReduxAsyncConnect /> DOING?
+
+// The redial package exposes an API to return promises that need to be fulfilled before a route is rendered
+// The <ReduxAsyncConnect /> component, wraps the render tree on both server and client
+
 // --------------------------------------------------------------------------
 // update component when the location changes
 // render data which is dynamically loaded from API into a component on both server and client renders
@@ -15,9 +29,16 @@ import asyncMatchRoutes from '../server/utils/asyncMatchRoutes';
 // HOC 'withRouter': get access to the history object's properties and the closest <Route>'s match
 // 'withRouter' will pass updated match, location, and history props to the wrapped component whenever it renders
 // Create a new component that is "connected" (redux terminology) to the router
-// <Route> render methods are passed the same three route props: ('match', 'location', 'history')
 
-@withRouter // 'react-router' passes updated (match, location, history) props (upon render)
+// History object properties:
+//  history.length - The number of entries in the history stack
+//  history.location - The current location (see below)
+//  history.action - The current navigation action (PUSH, REPLACE, POP)
+
+// passes updated (match, location, history) props (upon render)
+// const { match, location, history } = this.props;
+
+@withRouter 
 
 // 'withRouter' does not subscribe to location changes like React Redux's connect does for state changes
 // Instead, re-renders after location changes propagate out from the <Router> component
@@ -30,8 +51,7 @@ import asyncMatchRoutes from '../server/utils/asyncMatchRoutes';
 // >>>>>>>>>>>> evaluating 'current props' to 'nextProps' for PROP changes
 // >>>>>>>>>>>> update the state in response to prop changes (reset it)
 
-// >>>>>>>>>>>> 'static getDerivedStateFromProps(props, state)' VS 'componentWillReceiveProps(nextProps)'
-
+// >>>>>>>>>>>> older componentWillReceiveProps(nextProps) >>> newer getDerivedStateFromProps(props, state)
 // >>>>>>>>>>>> 'componentWillReceiveProps' is invoked before a mounted component receives new props
 // >>>>>>>>>>>> 'getDerivedStateFromProps' is invoked right before calling the render method
 
@@ -48,6 +68,7 @@ class ReduxAsyncConnect extends Component {
     location: PropTypes.objectOf(PropTypes.any).isRequired
   };
 
+  // Instance Properties
   state = {
     previousLocation: null
   };
@@ -71,15 +92,20 @@ class ReduxAsyncConnect extends Component {
 
   async UNSAFE_componentWillReceiveProps(nextProps) {
 
+    // invoked before a mounted component receives new props
+    // using 'componentWillReceiveProps' to 'reset' state when a prop changes
+    // alternative (v17): make component fully controlled or fully uncontrolled with a key
+
+    // Instance Properties
     const { history, location, routes } = this.props;
     const navigated = nextProps.location !== location;
 
-    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > componentWillReceiveProps() > __CLIENT__ ?: ', __CLIENT__);
-    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > componentWillReceiveProps() > __SERVER__ ?: ', __SERVER__);
+    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > __CLIENT__ ?: ', __CLIENT__);
+    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > __SERVER__ ?: ', __SERVER__);
 
-    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > componentWillReceiveProps() > history:', history);
-    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > componentWillReceiveProps() > location:', location);
-    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > componentWillReceiveProps() > routes:', routes);
+    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > history:', history);
+    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > location:', location);
+    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > routes:', routes);
 
     // test if location has changed
     // if location changed, update the state in response to location prop changes
@@ -89,20 +115,20 @@ class ReduxAsyncConnect extends Component {
     // If you used componentWillReceiveProps to 'reset' some state when a prop changes, 
     // consider either making a component fully controlled or fully uncontrolled with a key instead.
 
-    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > componentWillReceiveProps() > navigated?:', navigated);
+    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > navigated?:', navigated);
 
     if (navigated) {
 
       // NProgress.start();
       this.setState({ previousLocation: location });
 
-      console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > componentWillReceiveProps() > navigated > routes:', routes);
-      console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > componentWillReceiveProps() > navigated > nextProps.location.pathname:', nextProps.location.pathname);
+      console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > navigated > routes:', routes);
+      console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > navigated > nextProps.location.pathname:', nextProps.location.pathname);
 
       // load data while the old screen remains
       const { components, match, params } = await asyncMatchRoutes(routes, nextProps.location.pathname);
 
-      console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > componentWillReceiveProps() > navigated > components:', components);
+      console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > navigated > components:', components);
 
       const triggerLocals = {
         match,
@@ -127,6 +153,8 @@ class ReduxAsyncConnect extends Component {
   // ----------------------------------------------------------------------------------------------------------
 
   render() {
+
+    // Instance Properties
     const { children, location } = this.props;
     const { previousLocation } = this.state;
 
@@ -137,6 +165,9 @@ class ReduxAsyncConnect extends Component {
     const theRoute = <Route location={previousLocation || location} render={() => children} />;
     console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > render() > <Route>:', theRoute);
 
+    // <Route/>: render some UI when a location matches the route's path 
+    // location: (property) where the app is now, where you want it to go,where it was
+    // render: (function) allows for inline rendering and wrapping without remounting
     return <Route location={previousLocation || location} render={() => children} />;
   }
 }

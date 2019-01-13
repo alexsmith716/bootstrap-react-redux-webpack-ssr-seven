@@ -9,7 +9,61 @@ App is a continuation of repo `bootstrap-react-redux-webpack-ssr-six`. Picks up 
 Initial push of this app is `refactor(dev config devtool): using devtool inline-source-map for client and source-map for server`.
 
 
-### ERRORS/WARNINGS:
+### REACT COMPONENT CLASS OVERVIEW:
+
+UNSAFE_: encourage unsafe coding practices
+
+
+Mounting: component rendered to DOM for the first time
+
+  * getInitialState (ES5)
+  * constructor(props) (ES6)
+  ---------------------------------------------
+  * UNSAFE_componentWillMount()
+  ---------------------------------------------
+  * render
+  * componentDidMount()
+
+
+Updating: ReactDOM 'updates' DOM
+
+  * UNSAFE_componentWillReceiveProps(nextProps)
+  * static getDerivedStateFromProps(props, state)
+  ---------------------------------------------
+  * UNSAFE_componentWillUpdate(nextProps, nextState)
+  * shouldComponentUpdate(nextProps, nextState)
+  ---------------------------------------------
+  * render
+  * getSnapshotBeforeUpdate(prevProps, prevState)
+  * componentDidUpdate(prevProps, prevState, snapshot)
+
+
+Unmounting: component removed from DOM
+ 
+  * componentWillUnmount
+
+
+
+Other Component API's:
+
+  * setState()
+  * forceUpdate()
+
+
+Class Properties:
+
+  * defaultProps
+  * displayName
+
+
+Instance Properties:
+
+  * props
+  * state
+
+
+
+### ENCOUNTERED ERRORS/WARNINGS:
 
 #### Warning: Can't perform a React state update on an unmounted component
 
