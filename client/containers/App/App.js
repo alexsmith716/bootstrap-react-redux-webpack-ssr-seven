@@ -27,6 +27,12 @@ import config from '../../../config/config';
 // You can get access to the history object's properties and the closest <Route>'s 
 //   match via the withRouter higher-order component.
 // withRouter will pass updated match, location, and history props to the wrapped component whenever it renders.
+
+// Each history object has the following properties:
+//  history.length - The number of entries in the history stack
+//  history.location - The current location (see below)
+//  history.action - The current navigation action (PUSH, REPLACE, POP)
+
 @withRouter 
 
 // --------------------------------------------------------------------------
@@ -41,24 +47,17 @@ class App extends Component {
     location: PropTypes.objectOf(PropTypes.any).isRequired
   };
 
-  // getDerivedStateFromProps(): enables component to update internal state as the result of changes in props
-  // lifecycle is invoked after a component is instantiated as well as before it is re-rendered
-  // returns an object to update state, or null to indicate that the new props do not require any state updates
-  // called every time a component is rendered
-  static getDerivedStateFromProps(props, state) {
-    console.log('>>>>>>>>>>>>>>>> APP > getDerivedStateFromProps() <<<<<<<<<<<<<<');
-    const { prevProps } = state;
-    // Compare the incoming prop to previous prop
+  // static contextTypes = {};
 
-    return {
-      // Store the previous props in state
-      prevProps: props,
-    };
-  }
+  // static defaultProps = {};
 
   state = {
     prevProps: this.props
   };
+
+  componentDidMount() {
+    console.log('>>>>>>>>>>>>>>>> APP > componentDidMount() <<<<<<<<<<<<<<');
+  }
 
   // executed after the render() method is done
   // and the new changes to the underlying DOM have been applied
@@ -74,18 +73,20 @@ class App extends Component {
     }
   }
 
-  // UNSAFE_componentWillMount() {
-  //   console.log('>>>>>>>>>>>>>>>> APP > UNSAFE_componentWillMount() <<<<<<<<<<<<<<');
-  // }
+  // getDerivedStateFromProps(): enables component to update internal state as the result of changes in props
+  // lifecycle is invoked after a component is instantiated as well as before it is re-rendered
+  // returns an object to update state, or null to indicate that the new props do not require any state updates
+  // called every time a component is rendered
+  static getDerivedStateFromProps(props, state) {
+    console.log('>>>>>>>>>>>>>>>> APP > getDerivedStateFromProps() <<<<<<<<<<<<<<');
+    const { prevProps } = state;
+    // Compare the incoming prop to previous prop
 
-  componentDidMount() {
-    console.log('>>>>>>>>>>>>>>>> APP > componentDidMount() <<<<<<<<<<<<<<');
+    return {
+      // Store the previous props in state
+      prevProps: props,
+    };
   }
-
-  componentWillUnmount() {
-    console.log('>>>>>>>>>>>>>>>> APP > componentWillUnmount() <<<<<<<<<<<<<<');
-  }
-
 
   render() {
 
