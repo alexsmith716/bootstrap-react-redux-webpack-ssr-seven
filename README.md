@@ -65,14 +65,8 @@ Instance Properties:
 
 ### ENCOUNTERED ERRORS/WARNINGS:
 
-#### Warning: Can't perform a React state update on an unmounted component
 
-* Reproducible: 
-
-> SSR route
-> SPA route
-> edit SSR'd route
-> SPA SSR'd/edited route
+### babel-plugin-proposal-class-properties:
 
 transform static class properties && properties declared with the property initializer syntax
 https://babeljs.io/docs/en/next/babel-plugin-proposal-class-properties.html
