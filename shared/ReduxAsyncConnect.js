@@ -70,12 +70,32 @@ class ReduxAsyncConnect extends Component {
 
   // Instance Properties
   state = {
-    previousLocation: null
+    previousLocation: null,
+    lastLocation: null,
   };
 
-  UNSAFE_componentWillMount() {
-    // NProgress.configure({ trickleSpeed: 222200 });
-    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillMount() <<<<<<<<<<<<<<');
+  // invoked right before calling the render method, both on the initial mount and on subsequent updates
+  static getDerivedStateFromProps(props, state) {
+
+    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > getDerivedStateFromProps() > props.location: ', props.location);
+    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > getDerivedStateFromProps() > state.lastLocation: ', state.lastLocation);
+
+    const navigated = props.location !== state.lastLocation;
+
+    if (navigated) {
+
+      console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > getDerivedStateFromProps() > YES NAVIGATE! <<<<<<<<<<');
+
+      return {
+        previousLocation: null,
+        lastLocation: props.location
+      }
+
+    }
+
+    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > getDerivedStateFromProps() > NO NAVIGATE! <<<<<<<<<<');
+    return null;
+
   }
 
   componentDidMount() {
@@ -90,65 +110,73 @@ class ReduxAsyncConnect extends Component {
     console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > componentDidUpdate() <<<<<<<<<<<<<<');
   }
 
-  async UNSAFE_componentWillReceiveProps(nextProps) {
 
-    // invoked before a mounted component receives new props
-    // using 'componentWillReceiveProps' to 'reset' state when a prop changes
-    // alternative (v17): make component fully controlled or fully uncontrolled with a key
+  // // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config#matchroutesroutes-pathname
+  // async UNSAFE_componentWillReceiveProps(nextProps) {
 
-    // Instance Properties
-    const { history, location, routes } = this.props;
-    const navigated = nextProps.location !== location;
+  //   // invoked before a mounted component receives new props
+  //   // using 'componentWillReceiveProps' to 'reset' state when a prop changes
+  //   // alternative (v17): make component fully controlled or fully uncontrolled with a key
 
-    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > __CLIENT__ ?: ', __CLIENT__);
-    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > __SERVER__ ?: ', __SERVER__);
+  //   // Instance Properties
+  //   const { history, location, routes } = this.props;
+  //   const navigated = nextProps.location !== location;
 
-    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > history:', history);
-    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > location:', location);
-    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > routes:', routes);
+  //   console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > __CLIENT__ ?: ', __CLIENT__);
+  //   console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > __SERVER__ ?: ', __SERVER__);
 
-    // test if location has changed
-    // if location changed, update the state in response to location prop changes
-    // a page refresh has both 'locations' returning false (same key values)
-    // (key prop to prevent remounting component when transition was made from route with the same component and same key prop)
+  //   console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > history:', history);
+  //   console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > location:', location);
+  //   console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > routes:', routes);
 
-    // If you used componentWillReceiveProps to 'reset' some state when a prop changes, 
-    // consider either making a component fully controlled or fully uncontrolled with a key instead.
+  //   // test if location has changed
+  //   // if location changed, update the state in response to location prop changes
+  //   // a page refresh has both 'locations' returning false (same key values)
+  //   // (key prop to prevent remounting component when transition was made from route with the same component and same key prop)
 
-    console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > navigated?:', navigated);
+  //   // If you used componentWillReceiveProps to 'reset' some state when a prop changes, 
+  //   // consider either making a component fully controlled or fully uncontrolled with a key instead.
 
-    if (navigated) {
+  //   console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > navigated?:', navigated);
 
-      // NProgress.start();
-      this.setState({ previousLocation: location });
+  //   if (navigated) {
 
-      console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > navigated > routes:', routes);
-      console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > navigated > nextProps.location.pathname:', nextProps.location.pathname);
+  //     NProgress.start();
 
-      // load data while the old screen remains
-      const { components, match, params } = await asyncMatchRoutes(routes, nextProps.location.pathname);
+  //     // ==================================================================================================
+  //     // Currently Not Loading data on the server or in the lifecycle before rendering the next screen
+  //     // ==================================================================================================
 
-      console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > navigated > components:', components);
+  //     // save the location so we can render the old screen
+  //     // this.setState({ previousLocation: location });
 
-      const triggerLocals = {
-        match,
-        params,
-        history,
-        location: nextProps.location
-      };
+  //     console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > navigated > routes:', routes);
+  //     console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > navigated > nextProps.location.pathname:', nextProps.location.pathname);
 
-      await trigger('fetch', components, triggerLocals);
-      
-      if (__CLIENT__) {
-        await trigger('defer', components, triggerLocals);
-      }
+  //     // load data while the old screen remains
+  //     // const { components, match, params } = await asyncMatchRoutes(routes, nextProps.location.pathname);
 
-      // clear 'previousLocation' so the next screen renders
-      this.setState({ previousLocation: null });
+  //     // console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > UNSAFE_componentWillReceiveProps() > navigated > components:', components);
 
-      // NProgress.done();
-    }
-  }
+  //     // const triggerLocals = {
+  //     //   match,
+  //     //   params,
+  //     //   history,
+  //     //   location: nextProps.location
+  //     // };
+
+  //     // await trigger('fetch', components, triggerLocals);
+  //     // 
+  //     // if (__CLIENT__) {
+  //     //   await trigger('defer', components, triggerLocals);
+  //     // }
+
+  //     // clear 'previousLocation' so the next screen renders
+  //     this.setState({ previousLocation: null });
+
+  //     NProgress.done();
+  //   }
+  // }
 
   // ----------------------------------------------------------------------------------------------------------
 
