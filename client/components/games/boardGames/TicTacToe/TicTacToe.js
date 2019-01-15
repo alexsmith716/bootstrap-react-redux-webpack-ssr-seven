@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Helmet from 'react-helmet';
 // import Board from './Board';
 
 class TicTacToe extends Component {
@@ -23,8 +22,6 @@ class TicTacToe extends Component {
     return (
 
       <div className="container">
-
-        <Helmet title="Tic-Tac-Toe" />
 
         <h1 className={`mt-4 mb-3 ${styles.ticTacToeUniqueColor}`}>Game Tic-Tac-Toe</h1>
 

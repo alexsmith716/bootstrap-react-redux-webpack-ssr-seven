@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 
+import Clock from '../../components/widgets/Clock/Clock';
+
 class StickyFooter extends Component {
 
   UNSAFE_componentWillMount() {
@@ -26,6 +28,8 @@ class StickyFooter extends Component {
         <h1 className={styles.stickyFooterUniqueColor}>Sticky Footer Test!</h1>
 
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis?</p>
+
+        <Clock />
 
       </div>
     );
