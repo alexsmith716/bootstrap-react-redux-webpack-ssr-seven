@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 
-
 class Clock extends Component {
 
   constructor(props) {
-
     super(props);
 
     this.state = {
       date: new Date(),
       alertColor: this.getRandomAlert()
     };
-
   }
 
   componentDidMount() {
@@ -23,7 +20,6 @@ class Clock extends Component {
     clearInterval(this.timerID);
   }
 
-  // getRandomAlert() {
   getRandomAlert = () => {
     const alerts = ['primary','secondary','success','danger','warning','info','light','dark'];
     const randomAlert = alerts[ Math.floor( Math.random() * alerts.length ) ];
@@ -43,9 +39,7 @@ class Clock extends Component {
   //   return r;
   // }
 
-  callbackFunction() {
-    this.setState({ date: new Date(), alertColor: this.getRandomAlert() });
-  }
+  callbackFunction = () => this.setState({ date: new Date(), alertColor: this.getRandomAlert() });
 
   render() {
 
@@ -60,8 +54,8 @@ class Clock extends Component {
         <div className="card-body">
           <div className="card-title">
             <div className={`alert alert-${this.state.alertColor}`} role="alert">{`This is a Bootstrap v4 ${this.state.alertColor.toUpperCase()} alert`}</div>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" className="btn btn-primary">Go somewhere</a>
           </div>
         </div>
         <div className="card-footer text-muted">
