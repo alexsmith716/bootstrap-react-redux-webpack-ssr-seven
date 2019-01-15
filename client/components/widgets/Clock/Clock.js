@@ -43,7 +43,7 @@ class Clock extends Component {
 
   render() {
 
-    // const styles = require('./scss/Clock.scss');
+    const styles = require('./scss/Clock.scss');
 
     return (
 
@@ -54,7 +54,7 @@ class Clock extends Component {
         <div className="card-body">
           <div className="card-title">
             <div className={`alert alert-${this.state.alertColor}`} role="alert">{`This is a Bootstrap v4 ${this.state.alertColor.toUpperCase()} alert`}</div>
-            <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <p className={`card-text ${styles.clockUniqueColor}`}>With supporting text below as a natural lead-in to additional content.</p>
             <a href="#" className="btn btn-primary">Go somewhere</a>
           </div>
         </div>
