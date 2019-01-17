@@ -64,9 +64,9 @@ module.exports = {
 
       'axios',
       'final-form',
-      'jquery',
+      // 'jquery',
       'multireducer',
-      'popper.js',
+      // 'popper.js',
       'react',
       'react-dom',
       'react-final-form',

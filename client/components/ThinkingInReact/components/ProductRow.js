@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-class ProductRow extends React.Component {
+class ProductRow extends Component {
 
   render() {
 
@@ -10,3 +10,5 @@ class ProductRow extends React.Component {
     );
   }
 }
+
+export default ProductRow;
