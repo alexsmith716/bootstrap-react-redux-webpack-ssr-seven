@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
 import Clock from '../../components/widgets/Clock/Clock';
 
+
 class StickyFooter extends Component {
 
-  UNSAFE_componentWillMount() {
-    console.log('>>>>>>>>>>>>>>>> STICKYFOOTER > UNSAFE_componentWillMount() <<<<<<<<<<<<<<');
-  }
+  static propTypes = {
+    optionalString: PropTypes.string, // declared string JS primitive
+    optionalNumber: PropTypes.number, // declared number JS primitive
+    optionalNode: PropTypes.node, // Anything that can be rendered
+  };
 
   componentDidMount() {
     console.log('>>>>>>>>>>>>>>>> STICKYFOOTER > componentDidMount() <<<<<<<<<<<<<<');

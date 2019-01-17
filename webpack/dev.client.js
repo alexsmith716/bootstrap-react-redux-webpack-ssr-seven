@@ -30,6 +30,11 @@ if (process.env.WEBPACK_DLLS === '1' && !validDLLs) {
   console.warn('>>>>>> webpack.config.client.development.babel > WEBPACK_DLLS ENABLED !! <<<<<<<<<<');
 };
 
+const handler = (percentage, message, ...args) => {
+  // e.g. Output each progress message directly to the console:
+  console.info(percentage, message, ...args);
+};
+
 // ==============================================================================================
 
 // https://github.com/bholloway/resolve-url-loader/blob/master/packages/resolve-url-loader/README.md#configure-webpack
@@ -205,10 +210,9 @@ const webpackConfig = {
 
   plugins: [
 
+    // new webpack.ProgressPlugin(handler),
     new WriteFilePlugin(),
-
     new webpack.HotModuleReplacementPlugin(),
-
     new webpack.NoEmitOnErrorsPlugin(),
 
     new ExtractCssChunks({

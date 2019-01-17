@@ -16,6 +16,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const rootPath = path.resolve(__dirname, '..');
 const assetsPath = path.resolve(rootPath, './build/static/dist');
 
+const handler = (percentage, message, ...args) => {
+  // e.g. Output each progress message directly to the console:
+  console.info(percentage, message, ...args);
+};
+
 // ==============================================================================================
 
 // https://github.com/bholloway/resolve-url-loader/blob/master/packages/resolve-url-loader/README.md#configure-webpack
@@ -294,6 +299,8 @@ module.exports = {
   },
 
   plugins: [
+
+    new webpack.ProgressPlugin(handler),
 
     new ExtractCssChunks({
       filename: '[name].[contenthash].css',
