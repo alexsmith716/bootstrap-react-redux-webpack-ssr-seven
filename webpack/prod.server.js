@@ -10,6 +10,11 @@ const externals = require('./node-externals');
 
 const rootPath = path.resolve(__dirname, '..');
 
+const handler = (percentage, message, ...args) => {
+  // e.g. Output each progress message directly to the console:
+  console.info(percentage, message, ...args);
+};
+
 // ==============================================================================================
 
 // const babelrc = fs.readFileSync('./.babelrc', 'utf8');
@@ -175,6 +180,7 @@ module.exports = {
   },
 
   plugins: [
+    // new webpack.ProgressPlugin(handler),
     // https://webpack.js.org/plugins/module-concatenation-plugin/
     new webpack.optimize.ModuleConcatenationPlugin(),
     // https://webpack.js.org/plugins/internal-plugins/#occurrenceorderplugin

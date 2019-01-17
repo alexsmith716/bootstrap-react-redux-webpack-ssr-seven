@@ -66,6 +66,14 @@ Instance Properties:
 ### ENCOUNTERED ERRORS/WARNINGS:
 
 
+### Webpack Progress Plugin:
+
+https://webpack.js.org/plugins/progress-plugin/
+https://webpack.js.org/api/plugins/#reporting-progress
+https://webpack.js.org/api/compiler-hooks/
+new webpack.ProgressPlugin()
+
+
 ### babel-plugin-proposal-class-properties:
 
 transform static class properties && properties declared with the property initializer syntax

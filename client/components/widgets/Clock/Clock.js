@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 
 class Clock extends Component {
 
@@ -80,7 +82,7 @@ class Clock extends Component {
 
 export default Clock;
 
-// Date object methods:
+// some Date object methods:
 
 // new Date().toLocaleTimeString():
 //    * '05:10:30 PM'
