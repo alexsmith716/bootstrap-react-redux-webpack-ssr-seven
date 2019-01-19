@@ -30,7 +30,7 @@ class RandomBootstrapAlert extends Component {
 
   render() {
 
-    const styles = require('./scss/RandomBootstrapAlert.scss');
+    // const styles = require('./scss/RandomBootstrapAlert.scss');
 
     return (
 

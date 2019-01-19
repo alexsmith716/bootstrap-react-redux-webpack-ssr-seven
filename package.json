@@ -40,7 +40,7 @@
     "classnames": "^2.2.6",
     "compression": "^1.7.3",
     "connect-mongo": "^2.0.3",
-    "connected-react-router": "^6.1.0",
+    "connected-react-router": "^6.2.1",
     "cookie-parser": "^1.4.3",
     "cookie-session": "^2.0.0-beta.3",
     "cookies": "^0.7.3",
