@@ -8,7 +8,15 @@ class SearchBar extends Component {
     super(props);
 
   }
+  
+  handleFilterTextChange(e) {
 
+  }
+  
+  handleInStockChange(e) {
+
+  }
+  
   render() {
 
     return (

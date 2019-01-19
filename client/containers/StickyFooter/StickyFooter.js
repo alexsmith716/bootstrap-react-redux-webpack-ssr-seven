@@ -17,6 +17,24 @@ class StickyFooter extends Component {
 
   componentDidMount() {
     console.log('>>>>>>>>>>>>>>>> STICKYFOOTER > componentDidMount() <<<<<<<<<<<<<<');
+
+    axios.get('/product-categories.json')
+      .then(response => {
+        console.log('>>>>>>>>>>>>>>>> STICKYFOOTER > componentDidMount() > json > SUCCESS: ', response.data);
+      })
+      .catch(error => {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.log('>>>>>>>>>>>>>>>> STICKYFOOTER > componentDidMount() > json > ERROR.response.data: ', error.response.data);
+          console.log('>>>>>>>>>>>>>>>> STICKYFOOTER > componentDidMount() > json > ERROR.response.status: ', error.response.status);
+          console.log('>>>>>>>>>>>>>>>> STICKYFOOTER > componentDidMount() > json > ERROR.response.headers: ', error.response.headers);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log('>>>>>>>>>>>>>>>> STICKYFOOTER > componentDidMount() > json > ERROR.message: ', error.message);
+        }
+        console.log('>>>>>>>>>>>>>>>> STICKYFOOTER > componentDidMount() > json > ERROR.config: ', error.config);
+      });
   }
 
   componentWillUnmount() {
@@ -36,21 +54,31 @@ class StickyFooter extends Component {
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis?</p>
 
         <div className="card text-center">
+
           <h2 className="card-header">
             Clock: state and lifecycle in a basic React component!
           </h2>
+
           <div className="card-body">
+
             <div className="card-title">
+
               <RandomBootstrapAlert />
+
               <p>With supporting text below as a natural lead-in to additional content.</p>
+
               <a href="#" className="btn btn-primary">Go somewhere</a>
+
             </div>
+
           </div>
+
           <div className="card-footer text-muted">
+
             <Clock />
+
           </div>
         </div>
-
       </div>
     );
   }
