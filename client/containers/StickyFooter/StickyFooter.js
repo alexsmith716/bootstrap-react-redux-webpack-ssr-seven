@@ -5,36 +5,16 @@ import Helmet from 'react-helmet';
 
 import Clock from '../../components/widgets/Clock/Clock';
 import RandomBootstrapAlert from '../../components/widgets/RandomBootstrapAlert/RandomBootstrapAlert';
-// import FilterableProductTable from '../../components/FilterableProductTable';
+import ThinkingInReact from '../../components/ThinkingInReact/ThinkingInReact';
 
 class StickyFooter extends Component {
 
-  static propTypes = {
-    optionalString: PropTypes.string, // declared string JS primitive
-    optionalNumber: PropTypes.number, // declared number JS primitive
-    optionalNode: PropTypes.node, // Anything that can be rendered
-  };
+  // static propTypes = {
+
+  // };
 
   componentDidMount() {
     console.log('>>>>>>>>>>>>>>>> STICKYFOOTER > componentDidMount() <<<<<<<<<<<<<<');
-
-    axios.get('/product-categories.json')
-      .then(response => {
-        console.log('>>>>>>>>>>>>>>>> STICKYFOOTER > componentDidMount() > json > SUCCESS: ', response.data);
-      })
-      .catch(error => {
-        if (error.response) {
-          // The request was made and the server responded with a status code
-          // that falls out of the range of 2xx
-          console.log('>>>>>>>>>>>>>>>> STICKYFOOTER > componentDidMount() > json > ERROR.response.data: ', error.response.data);
-          console.log('>>>>>>>>>>>>>>>> STICKYFOOTER > componentDidMount() > json > ERROR.response.status: ', error.response.status);
-          console.log('>>>>>>>>>>>>>>>> STICKYFOOTER > componentDidMount() > json > ERROR.response.headers: ', error.response.headers);
-        } else {
-          // Something happened in setting up the request that triggered an Error
-          console.log('>>>>>>>>>>>>>>>> STICKYFOOTER > componentDidMount() > json > ERROR.message: ', error.message);
-        }
-        console.log('>>>>>>>>>>>>>>>> STICKYFOOTER > componentDidMount() > json > ERROR.config: ', error.config);
-      });
   }
 
   componentWillUnmount() {
@@ -45,40 +25,73 @@ class StickyFooter extends Component {
 
     const styles = require('./scss/StickyFooter.scss');
 
+    const uri = encodeURI('/product-categories.json'); // typeof 'string'
+
     return (
 
       <div className="container">
+
+        <Helmet title="Sticky Footer" />
 
         <h1 className={styles.stickyFooterUniqueColor}>Sticky Footer Test!</h1>
 
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis?</p>
 
-        <div className="card text-center">
 
-          <h2 className="card-header">
-            Clock: state and lifecycle in a basic React component!
-          </h2>
+        <div className="row">
 
-          <div className="card-body">
+          <div className="col-lg-12 mb-4">
 
-            <div className="card-title">
+            <div className="card h-100 text-center">
 
-              <RandomBootstrapAlert />
+              <h2 className="card-header">
+                Clock: state and lifecycle in a basic React component!
+              </h2>
 
-              <p>With supporting text below as a natural lead-in to additional content.</p>
+              <div className="card-body">
 
-              <a href="#" className="btn btn-primary">Go somewhere</a>
+                <div className="card-title">
 
+                  <RandomBootstrapAlert />
+
+                  <p>With supporting text below as a natural lead-in to additional content.</p>
+
+                  <a href="#" className="btn btn-primary">Go somewhere</a>
+
+                </div>
+              </div>
+
+              <div className="card-footer text-muted">
+
+                <Clock />
+
+              </div>
             </div>
-
-          </div>
-
-          <div className="card-footer text-muted">
-
-            <Clock />
-
           </div>
         </div>
+
+        <div className="row">
+
+          <div className="col-lg-12 mb-4">
+
+            <div className="card h-100 text-center">
+
+              <h2 className="card-header">
+                Thinking in React!
+              </h2>
+
+              <div className="card-body">
+
+                <div className="card-title">
+
+                  <ThinkingInReact requestURL={uri} />
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     );
   }

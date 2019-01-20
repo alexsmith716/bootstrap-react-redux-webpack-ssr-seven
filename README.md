@@ -11,6 +11,8 @@ Initial push of this app is `refactor(dev config devtool): using devtool inline-
 
 ### REACT COMPONENT CLASS OVERVIEW:
 
+If you don't initialize state and don't bind methods, a constructor is not needed
+
 UNSAFE_: encourage unsafe coding practices
 
 
