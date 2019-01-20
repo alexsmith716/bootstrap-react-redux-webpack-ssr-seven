@@ -20,20 +20,14 @@ class ThinkingInReact extends React.Component {
     requestURL: PropTypes.string
   };
 
-  decodeURI = url => {
-    console.log('>>>>>>>>>>>>>>>> ThinkingInReact > decodeURI: ', decodeURI(url));
-  }
-
   componentDidMount() {
     console.log('>>>>>>>>>>>>>>>> ThinkingInReact > componentDidMount() <<<<<<<<<<<<<<');
     console.log('>>>>>>>>>>>>>>>> ThinkingInReact > componentDidMount() > typeof props.requestURL: ', typeof this.props.requestURL);
     console.log('>>>>>>>>>>>>>>>> ThinkingInReact > componentDidMount() > props.requestURL: ', this.props.requestURL);
 
-    this.decodeURI(this.props.requestURL)
-
     axios.get(decodeURI(this.props.requestURL))
       .then(response => {
-        console.log('>>>>>>>>>>>>>>>> ThinkingInReact > componentDidMount() > json > SUCCESS  2: ', response.data);
+        console.log('>>>>>>>>>>>>>>>> ThinkingInReact > componentDidMount() > json > SUCCESS: ', response.data);
         this.setState({ data: response.data });
       })
       .catch(error => {
@@ -51,6 +45,8 @@ class ThinkingInReact extends React.Component {
   }
 
   render () {
+
+    const styles = require('./scss/ThinkingInReact.scss');
 
     return <FilterableProductTable list={ this.state.data } />;
 

@@ -33,7 +33,7 @@ class StickyFooter extends Component {
 
         <Helmet title="Sticky Footer" />
 
-        <h1 className={styles.stickyFooterUniqueColor}>Sticky Footer Test!</h1>
+        <h1 className={styles.uniqueColor}>Sticky Footer Test!</h1>
 
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis?</p>
 

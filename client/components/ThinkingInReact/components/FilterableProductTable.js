@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-// import SearchBar from './components/SearchBar';
-// import ProductTable from './components/ProductTable';
+// import SearchBar from './SearchBar';
+// import ProductTable from './ProductTable';
+import List from './List';
 
 // component hierarchy:
 
@@ -12,6 +13,10 @@ import PropTypes from 'prop-types';
 //     ProductTable
 //         ProductCategoryRow
 //         ProductRow
+
+// <div className={styles.uniqueColor}>
+//   { this.props.list }
+// </div>
 
 class FilterableProductTable extends Component {
 
@@ -39,17 +44,19 @@ class FilterableProductTable extends Component {
 
   render() {
 
-    console.log('>>>>>>>>>>>>>>>> FilterableProductTable > render() > typeof this.props.list: ', this.props.list);
+    console.log('>>>>>>>>>>>>>>>> FilterableProductTable > render() > typeof this.props.list: ', typeof this.props.list);
+    console.log('>>>>>>>>>>>>>>>> FilterableProductTable > render() > this.props.list: ', this.props.list);
+
+    const styles = require('./scss/FilterableProductTable.scss');
 
     return (
 
       <React.Fragment>
 
-        <p>
-          { this.props.list }
-        </p>
-        
+        <List list={ this.props.list } />
+
       </React.Fragment>
+
     );
   }
 }
