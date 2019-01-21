@@ -9,6 +9,13 @@ App is a continuation of repo `bootstrap-react-redux-webpack-ssr-six`. Picks up 
 Initial push of this app is `refactor(dev config devtool): using devtool inline-source-map for client and source-map for server`.
 
 
+### OBJECTS
+
+Objects are mutable and manipulated by reference not value
+If variable `x` refers to an object, and code `var y = x;` is executed, variable `y` holds a reference to the same object, not a copy of that object
+Any modifications made to the object through the variable `y` are also visible through the variable `x`
+
+
 ### REACT COMPONENT CLASS OVERVIEW:
 
 If you don't initialize state and don't bind methods, a constructor is not needed
