@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 // import SearchBar from './SearchBar';
-// import ProductTable from './ProductTable';
-import List from './List';
+import ProductTable from './ProductTable';
+// import List from './List';
 
 // component hierarchy:
 
@@ -14,29 +14,20 @@ import List from './List';
 //         ProductCategoryRow
 //         ProductRow
 
-// <div className={styles.uniqueColor}>
-//   { this.props.list }
-// </div>
-
 class FilterableProductTable extends Component {
 
   constructor(props) {
 
     super(props);
 
+    // this.state = {
+
+    // };
   }
 
   componentDidMount() {
     console.log('>>>>>>>>>>>>>>>> FilterableProductTable > componentDidMount() <<<<<<<<<<<<<<');
   }
-
-  // handleFilterTextChange(filterText) {
-
-  // }
-
-  // handleInStockChange(inStockOnly) {
-
-  // }
 
   componentWillUnmount() {
     console.log('>>>>>>>>>>>>>>>> FilterableProductTable > componentWillUnmount() <<<<<<<<<<<<<<');
@@ -51,11 +42,11 @@ class FilterableProductTable extends Component {
 
     return (
 
-      <React.Fragment>
+      // <List list={ this.props.list } />
 
-        <List list={ this.props.list } />
-
-      </React.Fragment>
+      <ProductTable
+        products={ this.props.list }
+      />
 
     );
   }

@@ -21,13 +21,15 @@ class ThinkingInReact extends React.Component {
   };
 
   componentDidMount() {
+
     console.log('>>>>>>>>>>>>>>>> ThinkingInReact > componentDidMount() <<<<<<<<<<<<<<');
     console.log('>>>>>>>>>>>>>>>> ThinkingInReact > componentDidMount() > typeof props.requestURL: ', typeof this.props.requestURL);
     console.log('>>>>>>>>>>>>>>>> ThinkingInReact > componentDidMount() > props.requestURL: ', this.props.requestURL);
 
     axios.get(decodeURI(this.props.requestURL))
       .then(response => {
-        console.log('>>>>>>>>>>>>>>>> ThinkingInReact > componentDidMount() > json > SUCCESS: ', response.data);
+        console.log('>>>>>>>>>>>>>>>> ThinkingInReact > componentDidMount() > json > SUCCESS 1: ', typeof response.data);
+        console.log('>>>>>>>>>>>>>>>> ThinkingInReact > componentDidMount() > json > SUCCESS 2: ', response.data);
         this.setState({ data: response.data });
       })
       .catch(error => {
