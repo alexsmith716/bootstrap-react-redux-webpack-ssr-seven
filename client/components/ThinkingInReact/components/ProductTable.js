@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import ProductCategoryRow from './ProductCategoryRow';
 import ProductRow from './ProductRow';
 
+import TableContainer from './TableContainer';
+
 
 class ProductTable extends Component {
 
@@ -42,11 +44,77 @@ class ProductTable extends Component {
 
     return (
 
+      // <div>
+      //   {rows}
+      // </div>
       <div>
 
-        {rows}
+        <div className="row">
 
-    </div>
+          <div className="col-lg-12 mb-4">
+
+            <div className="col">
+              <h4>Sporting Goods</h4>
+            </div>
+
+            <div className="col">
+
+              <div className="row">
+
+                <div className="col-lg-2">
+                  col 1
+                </div>
+
+                <div className="col-lg-5">
+                  col 2
+                </div>
+
+                <div className="col-lg-5">
+                  col 3
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div className="row">
+
+          <div className="col-lg-12 mb-4">
+
+            <div className="col">
+              <h4>Electronics</h4>
+            </div>
+
+            <div className="col">
+
+              <div className="row">
+
+                <div className="col">
+                  col 1
+                </div>
+
+                <div className="col">
+                  col 2
+                </div>
+
+                <div className="col">
+                  col 3
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
 
     );
   }
