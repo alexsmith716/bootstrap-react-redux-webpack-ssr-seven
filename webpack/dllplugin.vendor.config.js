@@ -62,6 +62,7 @@ module.exports = {
       '@babel/runtime-corejs2/helpers/typeof.js',
       '@babel/runtime-corejs2/regenerator/index.js',
 
+      '@fortawesome/fontawesome-free',
       'axios',
       'final-form',
       'jquery',
