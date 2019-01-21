@@ -39,13 +39,13 @@ class AboutOne extends Component {
 
           <div className="col-lg-12 mb-4">
 
-            <div className="card h-100 text-center">
+            <div className="card h-100">
 
-              <h2 className="card-header">
+              <h2 className="card-header text-center">
                 Clock: state and lifecycle in a basic React component!
               </h2>
 
-              <div className="card-body">
+              <div className="card-body text-center">
 
                 <div className="card-title">
 
@@ -71,9 +71,9 @@ class AboutOne extends Component {
 
           <div className="col-lg-12 mb-4">
 
-            <div className="card h-100 text-center">
+            <div className="card h-100">
 
-              <h2 className="card-header">
+              <h2 className="card-header text-center">
                 Thinking in React!
               </h2>
 

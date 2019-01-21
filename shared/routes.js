@@ -8,6 +8,8 @@ import AboutThree from '../client/containers/AboutThree/Loadable';
 import AboutFour from '../client/containers/AboutFour/Loadable';
 import StickyFooter from '../client/containers/StickyFooter/Loadable';
 import BoardGames from '../client/containers/Games/BoardGames/Loadable';
+import Login from '../client/containers/Login/Loadable';
+import Register from '../client/containers/Register/Loadable';
 
 const routes = [{
   component: App,
@@ -20,6 +22,8 @@ const routes = [{
     { path: '/about-four', component: AboutFour },
     { path: '/sticky-footer', component: StickyFooter },
     { path: '/board-games', component: BoardGames },
+    { path: '/login', component: Login },
+    { path: '/register', component: Register },
     { component: NotFound }
   ]
 }];
