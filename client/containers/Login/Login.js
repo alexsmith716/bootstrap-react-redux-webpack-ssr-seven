@@ -22,7 +22,7 @@ class Login extends Component {
   };
 
   static defaultProps = {
-    user: null
+    user: null // true
   };
 
   render() {
@@ -63,7 +63,7 @@ class Login extends Component {
 
                     <div>
                       <a href="#" className="m-b-10 d-flex justify-content-center align-items-center button-facebook">
-                        <i className="fa fa-facebook-official"></i>
+                        <i className="fab fa-facebook-square"></i>
                         Facebook
                       </a>
                     </div>
@@ -99,7 +99,7 @@ class Login extends Component {
 
               <div>
                 <button className="btn btn-danger">
-                  <i className="fa fa-sign-out" /> Log Out
+                  <i className="fas fa-sign-out-alt" /> Log Out
                 </button>
               </div>
             </div>
