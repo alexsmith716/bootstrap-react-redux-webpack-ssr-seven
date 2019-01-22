@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 import ProductTable from './ProductTable';
 // import List from './List';
 
-// component hierarchy:
-
 // FilterableProductTable
 //     SearchBar
 // 
@@ -35,18 +33,29 @@ class FilterableProductTable extends Component {
 
   render() {
 
-    console.log('>>>>>>>>>>>>>>>> FilterableProductTable > render() > typeof this.props.list: ', typeof this.props.list);
-    console.log('>>>>>>>>>>>>>>>> FilterableProductTable > render() > this.props.list: ', this.props.list);
+    console.log('>>>>>>>>>>>>>>>> FilterableProductTable > render() > typeof this.props.data: ', typeof this.props.data);
+    console.log('>>>>>>>>>>>>>>>> FilterableProductTable > render() > this.props.data: ', this.props.data);
 
     const styles = require('./scss/FilterableProductTable.scss');
 
     return (
 
-      // <List list={ this.props.list } />
+      <div className={styles.filterableProductTableContainer}>
 
-      <ProductTable
-        products={ this.props.list }
-      />
+        <div className="d-flex justify-content-center">
+
+          <div className={styles.productTable}>
+
+            <div className={styles.tableContainer}>
+
+              <ProductTable products={ this.props.data } />
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
 
     );
   }

@@ -63,7 +63,7 @@ class Login extends Component {
 
                     <div>
                       <a href="#" className="m-b-10 d-flex justify-content-center align-items-center button-facebook">
-                        <i className="fab fa-facebook-square"></i>
+                        <i className="fab faw fa-facebook-square"></i>
                         Facebook
                       </a>
                     </div>
