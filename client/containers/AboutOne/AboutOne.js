@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 import Helmet from 'react-helmet';
 
 import Clock from '../../components/widgets/Clock/Clock';
 import RandomBootstrapAlert from '../../components/widgets/RandomBootstrapAlert/RandomBootstrapAlert';
-import ThinkingInReact from '../../components/ThinkingInReact/ThinkingInReact';
+import FilterableProductTable from '../../components/FilterableProductTable/FilterableProductTable';
+import JsonComponentLoader from '../../components/JsonComponentLoader/JsonComponentLoader';
 
+// <ThinkingInReact requestURL={uri} />
 
 class AboutOne extends Component {
 
@@ -83,7 +84,7 @@ class AboutOne extends Component {
                   Filterable Product Table
                 </h5>
 
-                <ThinkingInReact requestURL={uri} />
+                <JsonComponentLoader requestURL={uri} component={FilterableProductTable} />
 
               </div>
             </div>
