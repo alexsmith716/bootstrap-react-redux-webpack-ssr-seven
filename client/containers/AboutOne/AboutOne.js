@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
+import AxiosComponentLoaderBasic from '../../components/AxiosComponentLoaderBasic/AxiosComponentLoaderBasic';
+
 import Clock from '../../components/widgets/Clock/Clock';
 import RandomBootstrapAlert from '../../components/widgets/RandomBootstrapAlert/RandomBootstrapAlert';
 import FilterableProductTable from '../../components/FilterableProductTable/FilterableProductTable';
-import JsonComponentLoader from '../../components/JsonComponentLoader/JsonComponentLoader';
 
-// <ThinkingInReact requestURL={uri} />
 
 class AboutOne extends Component {
 
@@ -22,8 +22,7 @@ class AboutOne extends Component {
   render() {
 
     const styles = require('./scss/AboutOne.scss');
-
-    const uri = encodeURI('/product-categories.json'); // typeof 'string'
+    const uri = encodeURI('/product-categories.json');
 
     return (
 
@@ -84,7 +83,7 @@ class AboutOne extends Component {
                   Filterable Product Table
                 </h5>
 
-                <JsonComponentLoader requestURL={uri} component={FilterableProductTable} />
+                <AxiosComponentLoaderBasic component={FilterableProductTable} requestURL={uri} />
 
               </div>
             </div>
