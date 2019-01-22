@@ -23,6 +23,10 @@ class FilterableProductTable extends Component {
     // };
   }
 
+  static propTypes = {
+    content: PropTypes.array.isRequired
+  };
+
   componentDidMount() {
     console.log('>>>>>>>>>>>>>>>> FilterableProductTable > componentDidMount() <<<<<<<<<<<<<<');
   }
@@ -33,7 +37,6 @@ class FilterableProductTable extends Component {
 
   render() {
 
-    console.log('>>>>>>>>>>>>>>>> FilterableProductTable > render() > typeof this.props.content: ', typeof this.props.content);
     console.log('>>>>>>>>>>>>>>>> FilterableProductTable > render() > this.props.content: ', this.props.content);
 
     const styles = require('./scss/FilterableProductTable.scss');

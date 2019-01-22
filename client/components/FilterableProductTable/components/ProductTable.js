@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import ProductCategoryRow from './ProductCategoryRow';
 import ProductRow from './ProductRow';
 
 
 class ProductTable extends Component {
+
+  constructor(props) {
+
+    super(props);
+
+    // this.state = {
+
+    // };
+  }
+
+  static propTypes = {
+    products: PropTypes.array.isRequired
+  };
 
   render() {
 

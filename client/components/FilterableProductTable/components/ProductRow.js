@@ -1,7 +1,22 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 
 class ProductRow extends Component {
+
+  constructor(props) {
+
+    super(props);
+
+    // this.state = {
+
+    // };
+  }
+
+  static propTypes = {
+    product: PropTypes.object.isRequired,
+    // key: PropTypes.array.isRequired,
+  };
 
   render() {
 
