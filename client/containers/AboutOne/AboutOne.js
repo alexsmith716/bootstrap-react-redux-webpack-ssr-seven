@@ -58,7 +58,7 @@ class AboutOne extends Component {
                 </div>
               </div>
 
-              <div className="card-footer text-muted">
+              <div className="card-footer text-muted text-center">
 
                 <Clock />
 
@@ -79,11 +79,12 @@ class AboutOne extends Component {
 
               <div className="card-body">
 
-                <div className="card-title">
+                <h5 className="card-title text-center">
+                  Filterable Product Table
+                </h5>
 
-                  <ThinkingInReact requestURL={uri} />
+                <ThinkingInReact requestURL={uri} />
 
-                </div>
               </div>
             </div>
           </div>

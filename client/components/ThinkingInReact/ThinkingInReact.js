@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-
 import FilterableProductTable from './components/FilterableProductTable';
 
 class ThinkingInReact extends React.Component {
@@ -50,7 +49,7 @@ class ThinkingInReact extends React.Component {
 
     const styles = require('./scss/ThinkingInReact.scss');
 
-    return <FilterableProductTable list={ this.state.data } />;
+    return <FilterableProductTable data={ this.state.data } />;
 
   }
 }
