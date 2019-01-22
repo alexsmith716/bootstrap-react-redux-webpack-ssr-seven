@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-// import SearchBar from './SearchBar';
-import ProductTable from './ProductTable';
-// import List from './List';
+// import SearchBar from './components/SearchBar';
+import ProductTable from './components/ProductTable';
+
 
 // FilterableProductTable
 //     SearchBar
@@ -33,8 +33,8 @@ class FilterableProductTable extends Component {
 
   render() {
 
-    console.log('>>>>>>>>>>>>>>>> FilterableProductTable > render() > typeof this.props.data: ', typeof this.props.data);
-    console.log('>>>>>>>>>>>>>>>> FilterableProductTable > render() > this.props.data: ', this.props.data);
+    console.log('>>>>>>>>>>>>>>>> FilterableProductTable > render() > typeof this.props.content: ', typeof this.props.content);
+    console.log('>>>>>>>>>>>>>>>> FilterableProductTable > render() > this.props.content: ', this.props.content);
 
     const styles = require('./scss/FilterableProductTable.scss');
 
@@ -48,7 +48,7 @@ class FilterableProductTable extends Component {
 
             <div className={styles.tableContainer}>
 
-              <ProductTable products={ this.props.data } />
+              <ProductTable products={ this.props.content } />
 
             </div>
 
