@@ -30,7 +30,7 @@ const Input = ({input, label, type, meta: { touched, error, submitError }, ...re
 
       <input {...input} {...rest} type={type} className="form-control" />
 
-      {(error || submitError) && touched && <span className="glyphicon glyphicon-remove form-control-feedback" />}
+      {(error || submitError) && touched && <span className="form-control-feedback" />}
 
       {(error || submitError) &&
         touched && (

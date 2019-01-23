@@ -1,20 +1,29 @@
 @import '../../sharedresources.scss';
 
 .filterableProductTableContainer {
-  padding-top: calculate-rem(15px);
-  padding-bottom: calculate-rem(15px);
-  // padding-bottom: calculate-rem(40px);
-  // background-color: #009900;
+  // width: calculate-rem(650px);
+  padding: calculate-rem(2px);
 
-  .productTable {
-    width: calculate-rem(650px);
+  background-color: #FFD700;
 
-    .tableContainer {
-      padding: calculate-rem(15px);
-      border: calculate-rem(1px) solid #d8dee2;
-      border-radius: calculate-rem(6px);
-      background-color: #ffffff;
+  border: calculate-rem(1px) solid #d8dee2;
+  border-radius: calculate-rem(6px);
+}
 
-    }
-  }
+.tableSearch {
+  padding: calculate-rem(10px);
+  background-color: #F0F8FF;
+
+  border: calculate-rem(1px) solid #d8dee2;
+  border-radius: calculate-rem(6px);
+
+  margin: 0 0 2px 0;
+}
+
+.tableContainer {
+  padding: calculate-rem(10px);
+  background-color: #F0F8FF;
+
+  border: calculate-rem(1px) solid #d8dee2;
+  border-radius: calculate-rem(6px);
 }
