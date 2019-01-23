@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-// import SearchBar from './components/SearchBar';
+import SearchBar from './components/SearchBar';
 import ProductTable from './components/ProductTable';
 
 
@@ -43,11 +43,17 @@ class FilterableProductTable extends Component {
 
     return (
 
-      <div className={styles.filterableProductTableContainer}>
+      <div className="d-flex justify-content-center">
 
-        <div className="d-flex justify-content-center">
+        <div className={styles.filterableProductTableContainer}>
 
           <div className={styles.productTable}>
+
+            <div className={styles.tableSearch}>
+
+              <SearchBar />
+
+            </div>
 
             <div className={styles.tableContainer}>
 
@@ -58,6 +64,7 @@ class FilterableProductTable extends Component {
           </div>
 
         </div>
+
       </div>
 
     );

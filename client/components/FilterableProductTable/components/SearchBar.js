@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Form, Field } from 'react-final-form';
 
 
 class SearchBar extends Component {
@@ -8,18 +10,37 @@ class SearchBar extends Component {
     super(props);
 
   }
-  
-  handleFilterTextChange(e) {
 
-  }
+  static propTypes = {
+    // filterText: PropTypes.string,
+    // inStockOnly: PropTypes.bool,
+    // onFilterTextChange: PropTypes.string,
+    // onInStockChange: PropTypes.bool
+  };
   
-  handleInStockChange(e) {
+  // handleFilterTextChange(e) {
 
-  }
+  // }
+  // 
+  // handleInStockChange(e) {
+
+  // }
   
   render() {
 
     return (
+
+      <form>
+      
+        <input type="text" placeholder="Search..." />
+
+        <div>
+          <input type="checkbox" />
+          {' '}
+          Only show products in stock
+        </div>
+
+      </form>
 
     );
   }
