@@ -8,9 +8,15 @@ const webpack = require('webpack');
 const config = require('../config/config');
 const externals = require('./node-externals');
 
+const loaderUtils = require('loader-utils').stringifyRequest;
 
 const rootPath = path.resolve(__dirname, '..');
 const WriteFilePlugin = require('write-file-webpack-plugin');
+
+const generatedIdent = (name, localName, lr) => {
+  const r = Buffer.from(lr).toString('base64');
+  return name + '__' + localName + '--' + r.substring( r.length-12, r.length-3 );
+};
 
 const handler = (percentage, message, ...args) => {
   // e.g. Output each progress message directly to the console:
@@ -69,14 +75,14 @@ module.exports = {
             options: {
               modules: true,
               exportOnlyLocals: true,
-              // localIdentName: '[name]__[local]__[hash:base64:5]',
+              // localIdentName: '[name]__[local]--[hash:base64:5]',
               getLocalIdent: (loaderContext, localIdentName, localName, options) => {
                 const fileName = path.basename(loaderContext.resourcePath)
                 if (fileName.indexOf('global.scss') !== -1) {
                   return localName
                 } else {
                   const name = fileName.replace(/\.[^/.]+$/, "")
-                  return `${name}__${localName}`
+                  return generatedIdent(name, localName, loaderContext.resourcePath);
                 }
               },
               // importLoaders: 2

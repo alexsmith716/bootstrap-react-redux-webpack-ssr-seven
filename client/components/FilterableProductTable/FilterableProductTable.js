@@ -7,7 +7,7 @@ import ProductTable from './components/ProductTable';
 
 // FilterableProductTable
 //     SearchBar
-// 
+//
 //     ProductTable
 //         ProductCategoryRow
 //         ProductRow
