@@ -162,7 +162,15 @@ const webpackConfig = {
             loader : 'css-loader',
             options: {
               modules: true,
-              localIdentName: '[name]__[local]',
+              getLocalIdent: (loaderContext, localIdentName, localName, options) => {
+                const fileName = path.basename(loaderContext.resourcePath)
+                if (fileName.indexOf('global.css') !== -1) {
+                  return localName
+                } else {
+                  const name = fileName.replace(/\.[^/.]+$/, "")
+                  return generatedIdent(name, localName, loaderContext.resourcePath);
+                }
+              },
               importLoaders: 1,
               sourceMap: true
             }
