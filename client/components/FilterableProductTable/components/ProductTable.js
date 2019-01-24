@@ -17,18 +17,32 @@ class ProductTable extends Component {
   }
 
   static propTypes = {
-    products: PropTypes.array.isRequired
+    products: PropTypes.array.isRequired,
+    filterText: PropTypes.string,
+    inStockOnly: PropTypes.bool
   };
 
   render() {
 
     const styles = require('./scss/ProductTable.scss');
+
+    const filterText = this.props.filterText;
+    const inStockOnly = this.props.inStockOnly;
+
     const rows = [];
     let lastCategory = null;
 
     // iterate through 'this.props.products' array
     // invoking arrow function specified for each element
     this.props.products.forEach((product) => {
+
+      if (product.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
+        return;
+      }
+
+      if (inStockOnly && !product.stocked) {
+        return;
+      }
 
       if (product.category !== lastCategory) {
 

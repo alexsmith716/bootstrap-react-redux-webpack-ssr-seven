@@ -9,22 +9,27 @@ class SearchBar extends Component {
 
     super(props);
 
+    this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
+    this.handleInStockChange = this.handleInStockChange.bind(this);
+
   }
 
   static propTypes = {
-    // filterText: PropTypes.string,
-    // inStockOnly: PropTypes.bool,
-    // onFilterTextChange: PropTypes.string,
-    // onInStockChange: PropTypes.bool
+    filterText: PropTypes.string,
+    inStockOnly: PropTypes.bool,
+    onFilterTextChange: PropTypes.func,
+    onInStockChange: PropTypes.func
   };
 
-  // handleFilterTextChange(e) {
-
-  // }
-
-  // handleInStockChange(e) {
-
-  // }
+  handleFilterTextChange(e) {
+    // console.log('>>>>>>>>>>>>>>> SearchBar > handleFilterTextChange > e.target.value:', e.target.value)
+    this.props.onFilterTextChange(e.target.value);
+  }
+  
+  handleInStockChange(e) {
+    // console.log('>>>>>>>>>>>>>>> SearchBar > handleInStockChange > e.target.checked:', e.target.checked)
+    this.props.onInStockChange(e.target.checked);
+  }
 
   render() {
 
@@ -34,10 +39,19 @@ class SearchBar extends Component {
 
       <form>
 
-        <input type="text" placeholder="Search..." />
+        <input
+          type="text"
+          placeholder="Search..." 
+          value={this.props.filterText}
+          onChange={this.handleFilterTextChange}
+        />
 
         <div>
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            checked={this.props.inStockOnly}
+            onChange={this.handleInStockChange}
+          />
           {' '}
           Only show products in stock
         </div>
