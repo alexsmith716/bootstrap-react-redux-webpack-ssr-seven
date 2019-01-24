@@ -123,7 +123,15 @@ module.exports = {
             options: {
               modules: true,
               exportOnlyLocals: true,
-              localIdentName: '[name]__[local]',
+              getLocalIdent: (loaderContext, localIdentName, localName, options) => {
+                const fileName = path.basename(loaderContext.resourcePath)
+                if (fileName.indexOf('global.css') !== -1) {
+                  return localName
+                } else {
+                  const name = fileName.replace(/\.[^/.]+$/, "")
+                  return generatedIdent(name, localName, loaderContext.resourcePath);
+                }
+              },
               importLoaders: 1
             }
           },
