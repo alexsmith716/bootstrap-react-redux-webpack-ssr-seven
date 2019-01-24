@@ -17,21 +17,23 @@ class SearchBar extends Component {
     // onFilterTextChange: PropTypes.string,
     // onInStockChange: PropTypes.bool
   };
-  
+
   // handleFilterTextChange(e) {
 
   // }
-  // 
+
   // handleInStockChange(e) {
 
   // }
-  
+
   render() {
+
+    const styles = require('./scss/SearchBar.scss');
 
     return (
 
       <form>
-      
+
         <input type="text" placeholder="Search..." />
 
         <div>

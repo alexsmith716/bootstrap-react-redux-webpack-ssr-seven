@@ -25,9 +25,24 @@ var validDLLs = dllHelpers.isValidDLLs('vendor', path.resolve(__dirname, '../bui
 
 if (process.env.WEBPACK_DLLS === '1' && !validDLLs) {
   process.env.WEBPACK_DLLS = '0';
-  console.warn('>>>>>> webpack.config.client.development.babel > WEBPACK_DLLS disabled !! <<<<<<<<<<');
+  console.log('>>>>>>>>>>>>>>>> dev.client > WEBPACK_DLLS DISABLED !! <<<<<<<<<<<<<<<');
 } else {
-  console.warn('>>>>>> webpack.config.client.development.babel > WEBPACK_DLLS ENABLED !! <<<<<<<<<<');
+  console.log('>>>>>>>>>>>>>>>> dev.client > WEBPACK_DLLS ENABLED !! <<<<<<<<<<<<<<<');
+};
+
+// loaderContext: ton of data about loaded object
+// loaderContext.resourcePath: '/....../bootstrap-react-redux-webpack-ssr-seven/client/containers/About/scss/About.scss'
+
+// generate classname based on a different schema
+// https://nodejs.org/api/buffer.html
+// Node 'Buffer' class enables manipulation of binary data
+// 'Buffer.from(string[, encoding])': returns a new Buffer that contains a copy of the provided string
+// 'Buffer.from('hello world', 'ascii')'
+// strings are immutable (will return new string, not modify)
+// ident unique based on sscss directory
+const generatedIdent = (name, localName, lr) => {
+  const r = Buffer.from(lr).toString('base64');
+  return name + '__' + localName + '--' + r.substring( r.length-12, r.length-3 );
 };
 
 const handler = (percentage, message, ...args) => {
@@ -91,14 +106,16 @@ const webpackConfig = {
             loader: 'css-loader',
             options: {
               modules: true,
-              // localIdentName: '[name]__[local]__[hash:base64:5]',
+              // localIdentName: '[name]__[local]--[hash:base64:5]',
               getLocalIdent: (loaderContext, localIdentName, localName, options) => {
                 const fileName = path.basename(loaderContext.resourcePath)
                 if (fileName.indexOf('global.scss') !== -1) {
                   return localName
                 } else {
                   const name = fileName.replace(/\.[^/.]+$/, "")
-                  return `${name}__${localName}`
+                  // console.log('>>>>>>>>>>>>>>>> dev.client > getLocalIdent > loaderContext.resourcePath: ', loaderContext.resourcePath);
+                  // console.log('>>>>>>>>>>>>>>>> dev.client > getLocalIdent > ${name}__${localName}: ', `${name}__${localName}`);
+                  return generatedIdent(name, localName, loaderContext.resourcePath);
                 }
               },
               importLoaders: 2,

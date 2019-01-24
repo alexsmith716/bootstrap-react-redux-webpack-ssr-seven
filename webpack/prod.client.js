@@ -16,6 +16,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const rootPath = path.resolve(__dirname, '..');
 const assetsPath = path.resolve(rootPath, './build/static/dist');
 
+const generatedIdent = (name, localName, lr) => {
+  const r = Buffer.from(lr).toString('base64');
+  return name + '__' + localName + '--' + r.substring( r.length-12, r.length-3 );
+};
+
 const handler = (percentage, message, ...args) => {
   // e.g. Output each progress message directly to the console:
   console.info(percentage, message, ...args);
@@ -79,7 +84,7 @@ module.exports = {
                   return localName
                 } else {
                   const name = fileName.replace(/\.[^/.]+$/, "")
-                  return `${name}__${localName}`
+                  return generatedIdent(name, localName, loaderContext.resourcePath);
                 }
               },
               importLoaders: 2
@@ -300,7 +305,7 @@ module.exports = {
 
   plugins: [
 
-    new webpack.ProgressPlugin(handler),
+    // new webpack.ProgressPlugin(handler),
 
     new ExtractCssChunks({
       filename: '[name].[contenthash].css',
