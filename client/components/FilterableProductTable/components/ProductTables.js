@@ -51,7 +51,7 @@ class ProductTables extends Component {
 
         rows.push(
 
-          <ProductTable category={product.category} key={product.category}/>
+          <ProductTable tableProducts={product} key={product.category}/>
 
         );
       }
