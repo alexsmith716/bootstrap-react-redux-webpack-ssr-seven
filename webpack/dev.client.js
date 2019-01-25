@@ -43,6 +43,7 @@ if (process.env.WEBPACK_DLLS === '1' && !validDLLs) {
 const generatedIdent = (name, localName, lr) => {
   const r = Buffer.from(lr).toString('base64');
   return name + '__' + localName + '--' + r.substring( r.length-12, r.length-3 );
+  // substring args based on resourcePath length
 };
 
 const handler = (percentage, message, ...args) => {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import SearchBar from './components/SearchBar';
-import ProductTable from './components/ProductTable';
+import ProductTables from './components/ProductTables';
 
 
 // FilterableProductTable
@@ -71,26 +71,29 @@ class FilterableProductTable extends Component {
 
     return (
 
-      <div className="d-flex justify-content-center">
-
+      <div className="justify-content-center">
         <div className={styles.filterableProductTableContainer}>
 
           <div className={styles.productTable}>
 
-            <div className={styles.tableSearch}>
+            <div className={styles.tableSearchContainer}>
+              <div className={styles.tableSearch}>
 
-              <SearchBar 
-                filterText = { this.state.filterText }
-                inStockOnly = { this.state.inStockOnly }
-                onFilterTextChange = { this.handleFilterTextChange }
-                onInStockChange = { this.handleInStockChange }
-              />
+                <SearchBar 
+                  filterText = { this.state.filterText }
+                  inStockOnly = { this.state.inStockOnly }
+                  onFilterTextChange = { this.handleFilterTextChange }
+                  onInStockChange = { this.handleInStockChange }
+                />
 
+              </div>
             </div>
+
+            <br />
 
             <div className={styles.tableContainer}>
 
-              <ProductTable 
+              <ProductTables 
                 products = { this.props.content } 
                 filterText = { this.state.filterText }
                 inStockOnly = { this.state.inStockOnly }
@@ -99,13 +102,95 @@ class FilterableProductTable extends Component {
             </div>
 
           </div>
-
         </div>
-
       </div>
-
     );
   }
 }
 
 export default FilterableProductTable;
+
+
+
+// <div className="justify-content-center">
+//   <div className={styles.filterableProductTableContainer}>
+
+//     <div className={styles.productTable}>
+
+//       <div className={styles.tableSearchContainer}>
+//         <div className={styles.tableSearch}>
+
+//           <SearchBar 
+//             filterText = { this.state.filterText }
+//             inStockOnly = { this.state.inStockOnly }
+//             onFilterTextChange = { this.handleFilterTextChange }
+//             onInStockChange = { this.handleInStockChange }
+//           />
+
+//         </div>
+//       </div>
+
+//       <br />
+
+//       <div className={styles.tableContainer}>
+
+//         <ProductTable 
+//           products = { this.props.content } 
+//           filterText = { this.state.filterText }
+//           inStockOnly = { this.state.inStockOnly }
+//         />
+
+//         <ProductTable 
+//           products = { this.props.content } 
+//           filterText = { this.state.filterText }
+//           inStockOnly = { this.state.inStockOnly }
+//         />
+
+//       </div>
+
+//     </div>
+//   </div>
+// </div>
+
+
+// <div className="d-flex justify-content-center">
+
+//   <div className={styles.filterableProductTableContainer}>
+
+//     <div className={styles.productTable}>
+
+//       <div className={styles.tableSearch}>
+
+//         <SearchBar 
+//           filterText = { this.state.filterText }
+//           inStockOnly = { this.state.inStockOnly }
+//           onFilterTextChange = { this.handleFilterTextChange }
+//           onInStockChange = { this.handleInStockChange }
+//         />
+
+//       </div>
+
+//       <div className={styles.tableContainer}>
+
+//         <ProductTable 
+//           products = { this.props.content } 
+//           filterText = { this.state.filterText }
+//           inStockOnly = { this.state.inStockOnly }
+//         />
+
+//       </div>
+
+//     </div>
+
+//   </div>
+
+// </div>
+
+
+
+
+
+
+
+
+

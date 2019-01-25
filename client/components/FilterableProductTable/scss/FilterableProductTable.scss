@@ -4,26 +4,31 @@
   // width: calculate-rem(650px);
   padding: calculate-rem(2px);
 
-  background-color: #FFD700;
+  background-color: #F4F4F4;
 
   border: calculate-rem(1px) solid #d8dee2;
   border-radius: calculate-rem(6px);
 }
 
-.tableSearch {
+.tableSearchContainer {
+
   padding: calculate-rem(10px);
-  background-color: #F0F8FF;
+  background-color: #FFFFF0;
 
   border: calculate-rem(1px) solid #d8dee2;
-  border-radius: calculate-rem(6px);
+  border-radius: calculate-rem(3px);
 
-  margin: 0 0 2px 0;
+  // margin: 0 0 2px 0;
+
+  .tableSearch {
+    width: calculate-rem(300px);
+  }
 }
 
 .tableContainer {
   padding: calculate-rem(10px);
-  background-color: #F0F8FF;
+  background-color: #FCFCFC;
 
   border: calculate-rem(1px) solid #d8dee2;
-  border-radius: calculate-rem(6px);
+  border-radius: calculate-rem(3px);
 }

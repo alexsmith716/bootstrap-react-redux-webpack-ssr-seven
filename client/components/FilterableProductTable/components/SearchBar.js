@@ -37,26 +37,40 @@ class SearchBar extends Component {
 
     return (
 
-      <form>
+      <div className={styles.searchBarContainer}>
 
-        <input
-          type="text"
-          placeholder="Search..." 
-          value={this.props.filterText}
-          onChange={this.handleFilterTextChange}
-        />
+        <form>
 
-        <div>
-          <input
-            type="checkbox"
-            checked={this.props.inStockOnly}
-            onChange={this.handleInStockChange}
-          />
-          {' '}
-          Only show products in stock
-        </div>
+          <div className="form-group">
 
-      </form>
+            <input
+              type="text"
+              className="form-control"
+              id="searchBar"
+              placeholder="Search..."
+              value={this.props.filterText}
+              onChange={this.handleFilterTextChange}
+            />
+
+          </div>
+
+          <div className="form-check">
+
+            <input
+              type="checkbox"
+              className="form-check-input"
+              id="productsInStock"
+              checked={this.props.inStockOnly}
+              onChange={this.handleInStockChange}
+            />
+
+            <label className="form-check-label" htmlFor="productsInStock">
+              Only show products in stock
+            </label>
+
+          </div>
+        </form>
+      </div>
 
     );
   }
