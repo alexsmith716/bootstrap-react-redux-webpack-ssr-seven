@@ -32,32 +32,30 @@ class ProductTable extends Component {
 
     return (
 
-      <div>
-        <div className="table-responsive">
-          <table className="table table-striped">
-            <thead>
-              <tr className="table-info">
-                <th colSpan={tempColSpan}>{`${category} ===============================================`}</th>
-              </tr>
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Size</th>
-                <th scope="col">Color</th>
-                <th scope="col">Make</th>
-                <th scope="col">Model</th>
-                <th scope="col">ID</th>
-                <th scope="col">State</th>
-                <th scope="col">Logo</th>
-                <th scope="col">Count</th>
-                <th scope="col">Ordered</th>
-              </tr>
-            </thead>
+      <div className="table-responsive">
+        <table className="table table-striped">
+          <thead>
+            <tr className="table-info">
+              <th colSpan={tempColSpan}>{`${category} ===============================================`}</th>
+            </tr>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Size</th>
+              <th scope="col">Color</th>
+              <th scope="col">Make</th>
+              <th scope="col">Model</th>
+              <th scope="col">ID</th>
+              <th scope="col">State</th>
+              <th scope="col">Logo</th>
+              <th scope="col">Count</th>
+              <th scope="col">Ordered</th>
+            </tr>
+          </thead>
 
-              <TableBody />
+            <TableBody />
 
-          </table>
-        </div>
+        </table>
       </div>
 
     );
