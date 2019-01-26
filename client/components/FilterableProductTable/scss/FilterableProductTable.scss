@@ -21,8 +21,10 @@
   // margin: 0 0 2px 0;
 
   .tableSearch {
-    width: calculate-rem(300px);
+    width: calculate-rem(400px);
   }
+
+  display: flex;
 }
 
 .tableContainer {

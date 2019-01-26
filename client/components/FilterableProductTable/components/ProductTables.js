@@ -65,7 +65,9 @@ class ProductTables extends Component {
     return (
 
       <div>
+
         {rows}
+
       </div>
 
     );
