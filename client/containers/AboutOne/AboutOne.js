@@ -6,7 +6,7 @@ import AxiosComponentLoaderBasic from '../../components/AxiosComponentLoaderBasi
 
 import Clock from '../../components/widgets/Clock/Clock';
 import RandomBootstrapAlert from '../../components/widgets/RandomBootstrapAlert/RandomBootstrapAlert';
-import FilterableProductTable from '../../components/FilterableProductTable/FilterableProductTable';
+import FilterableTable from '../../components/FilterableTable/FilterableTable';
 
 
 class AboutOne extends Component {
@@ -84,7 +84,7 @@ class AboutOne extends Component {
                   Filterable Product Table
                 </h5>
 
-                <AxiosComponentLoaderBasic component={FilterableProductTable} requestURL={uri} />
+                <AxiosComponentLoaderBasic component={FilterableTable} requestURL={uri} />
 
               </div>
             </div>
