@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import SearchBar from './components/SearchBar';
-import ProductTables from './components/ProductTables';
+import Tables from './components/Tables';
 
 
-// FilterableProductTable
+// FilterableTable
 //     SearchBar
 //
-//     ProductTable
-//         ProductCategoryRow
-//         ProductRow
+//     Tables (forEach > data > category)
+//        Table
+//          TableHead
+//          TableBody
 
 // React DOM compares the element and its children to the previous one, 
 // and only applies the DOM updates necessary to bring the DOM to the desired state
@@ -22,7 +23,7 @@ import ProductTables from './components/ProductTables';
 // State (changes) allows React components to change their output over time in response to user actions, 
 // network responses, and anything else without violating 'pure function' rule
 
-class FilterableProductTable extends Component {
+class FilterableTable extends Component {
 
   constructor(props) {
 
@@ -47,7 +48,7 @@ class FilterableProductTable extends Component {
   };
 
   handleFilterTextChange(filterText) {
-    // console.log('>>>>>>>>>>>>>>> FilterableProductTable > handleFilterTextChange > filterText1:', filterText);
+    // console.log('>>>>>>>>>>>>>>> FilterableTable > handleFilterTextChange > filterText1:', filterText);
     this.setState({ filterText: filterText });
   }
   
@@ -56,18 +57,18 @@ class FilterableProductTable extends Component {
   }
 
   componentDidMount() {
-    console.log('>>>>>>>>>>>>>>>> FilterableProductTable > componentDidMount() <<<<<<<<<<<<<<');
+    console.log('>>>>>>>>>>>>>>>> FilterableTable > componentDidMount() <<<<<<<<<<<<<<');
   }
 
   componentWillUnmount() {
-    console.log('>>>>>>>>>>>>>>>> FilterableProductTable > componentWillUnmount() <<<<<<<<<<<<<<');
+    console.log('>>>>>>>>>>>>>>>> FilterableTable > componentWillUnmount() <<<<<<<<<<<<<<');
   }
 
   render() {
 
-    console.log('>>>>>>>>>>>>>>>> FilterableProductTable > render() > this.props.content: ', this.props.content);
+    console.log('>>>>>>>>>>>>>>>> FilterableTable > render() > this.props.content: ', this.props.content);
 
-    const styles = require('./scss/FilterableProductTable.scss');
+    const styles = require('./scss/FilterableTable.scss');
 
     return (
 
@@ -78,10 +79,10 @@ class FilterableProductTable extends Component {
           <div className={styles.tableSearch}>
 
             <SearchBar 
-              filterText = { this.state.filterText }
-              inStockOnly = { this.state.inStockOnly }
-              onFilterTextChange = { this.handleFilterTextChange }
-              onInStockChange = { this.handleInStockChange }
+              filterText={ this.state.filterText }
+              inStockOnly={ this.state.inStockOnly }
+              onFilterTextChange={ this.handleFilterTextChange }
+              onInStockChange={ this.handleInStockChange }
             />
 
           </div>
@@ -92,10 +93,10 @@ class FilterableProductTable extends Component {
 
         <div className={styles.tableContainer}>
 
-          <ProductTables 
-            products = { this.props.content } 
-            filterText = { this.state.filterText }
-            inStockOnly = { this.state.inStockOnly }
+          <Tables 
+            tablesData={ this.props.content } 
+            filterText={ this.state.filterText }
+            inStockOnly={ this.state.inStockOnly }
           />
 
         </div>
@@ -106,4 +107,4 @@ class FilterableProductTable extends Component {
   }
 }
 
-export default FilterableProductTable;
+export default FilterableTable;

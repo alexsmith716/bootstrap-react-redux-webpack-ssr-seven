@@ -14,12 +14,16 @@ class TableData extends Component {
   }
 
   static propTypes = {
-    // product: PropTypes.object.isRequired,
+    // data: PropTypes.object
+  };
+
+  static defaultProps = {
+    //
   };
 
   render() {
 
-    // const product = this.props.product;
+    //
 
     return (
 
