@@ -53,6 +53,11 @@
   "name": "Surplus Surprise Daily",
   "id": 101
 },{
+  "category": "Surplus Surprise Weekly Raffle Pack",
+  "name": "Surplus Surprise Weekly Raffle",
+  "price": "5.00",
+  "id": 102
+},{
   "category": "Sporting Goods 2",
   "stocked": true,
   "name": "Baseball 1",

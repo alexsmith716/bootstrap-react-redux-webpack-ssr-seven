@@ -25,7 +25,9 @@ class TableHeadData extends Component {
 
   render() {
 
-    // console.log('>>>>>>>>>>>>>>>> TableHeadData > DATA:', this.props.data);
+    console.log('>>>>>>>>>>>>>>>> TableHeadData !!!!!!! > this.props.colSpan:', this.props.colSpan);
+    console.log('>>>>>>>>>>>>>>>> TableHeadData !!!!!!! > this.props.category:', this.props.category);
+    console.log('>>>>>>>>>>>>>>>> TableHeadData !!!!!!! > this.props.data:', this.props.data);
 
     const rows = [];
 
@@ -35,7 +37,7 @@ class TableHeadData extends Component {
 
       return (
 
-        <th colSpan={this.props.colSpan}>{`${this.props.category} `}</th>
+        <th colSpan={this.props.colSpan}>{`${this.props.category.toUpperCase()} `}</th>
 
       );
 
@@ -45,7 +47,7 @@ class TableHeadData extends Component {
 
       return (
 
-        <th scope="col">Name 1</th>
+        <th scope="col">{this.props.data.charAt(0).toUpperCase()+this.props.data.slice(1)}</th>
 
       );
     }
