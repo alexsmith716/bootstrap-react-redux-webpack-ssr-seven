@@ -50,9 +50,6 @@ class TableHeadData extends Component {
       );
     }
 
-
-
-
     return (
 
       <th>
