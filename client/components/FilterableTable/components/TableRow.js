@@ -37,11 +37,12 @@ class TableRow extends Component {
 
   render() {
 
-    //console.log('>>>>>>>>>>>>>>>> TableRow > this.props.className:', this.props.className);
-    //console.log('>>>>>>>>>>>>>>>> TableRow > this.props.category:', this.props.category);
-    //console.log('>>>>>>>>>>>>>>>> TableRow > this.props.data:', this.props.data);
+    console.log('>>>>>>>>>>>>>>>> TableRow > this.props.className:', this.props.className);
+    console.log('>>>>>>>>>>>>>>>> TableRow > this.props.category:', this.props.category);
+    console.log('>>>>>>>>>>>>>>>> TableRow > this.props.colSpan:', this.props.colSpan);
+    console.log('>>>>>>>>>>>>>>>> TableRow > this.props.data:', this.props.data);
 
-    const row = [];
+    const rows = [];
 
     if (this.props.type && this.props.className) {
 
@@ -52,22 +53,23 @@ class TableRow extends Component {
         <tr className="table-info">
           <TableHeadData colSpan={ this.props.colSpan } category={ this.props.category } />
         </tr>
-
       );
 
     } else if (this.props.type && !this.props.className) {
 
       console.log('>>>>>>>>>>>>>>>> TableRow > THEAD > YESSSSSSS > type thead 222 <<<<<<<<<<<<<<<');
 
+      for(let p in this.props.data) {
+        rows.push( <TableHeadData data={ this.props.data[p] } /> );
+      }
+
       return (
 
         <tr>
-          <TableHeadData />
-          <TableHeadData />
-          <TableHeadData />
-          <TableHeadData />
-        </tr>
 
+          {rows}
+
+        </tr>
       );
 
     } else {
