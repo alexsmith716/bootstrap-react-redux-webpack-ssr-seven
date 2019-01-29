@@ -25,9 +25,10 @@ class Table extends Component {
 
     const styles = require('./scss/Table.scss');
 
-    console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.data.category:', this.props.data.category);
-    console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.HEADING:', this.props.data.heading);
-    console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.DATA:', this.props.data.tableData);
+    console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.DATA:', this.props.data);
+    console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.DATA.category:', this.props.data.category);
+    console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.DATA.heading:', this.props.data.heading);
+    console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.DATA.tableData:', this.props.data.tableData);
 
     return (
 

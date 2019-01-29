@@ -24,27 +24,27 @@ class Tables extends Component {
 
   render() {
 
-    console.log('>>>>>>>>>>>>>>>> Tables > this.props.tablesData:', this.props.tablesData);
-
     const filterText = this.props.filterText;
     const inStockOnly = this.props.inStockOnly;
 
     const tables = [];
 
-    let tableHeading = { 
-      heading: [ 'stocked', 'name', 'price', 'size' ]
-    };
+    // let testData = {
+    //   category: 'Sporting Goods 2',
+    //   heading: [ 'stocked', 'name', 'price', 'size' ],
+    //   tableData: [ 
+    //     [ true, 'Baseball 1', '9.99', 'large' ],
+    //     [ true, 'Baseball 2', '11.99', 'medium' ],
+    //     [ true, 'Baseball 3', '10.99', 'large' ]
+    //   ] 
+    // };
 
     let testData = {
-      category: 'Sporting Goods 2',
-      heading: [ 'stocked', 'name', 'price', 'size' ],
-      tableData: [ 
-        [ true, 'Baseball 1', '9.99', 'large' ],
-        [ true, 'Baseball 2', '11.99', 'medium' ],
-        [ true, 'Baseball 3', '10.99', 'large' ]
-      ] 
+      category: '',
+      heading: [],
+      tableData: []
     };
-    // const rows = [];
+
     let lastCategory = null;
 
     // iterate through 'this.props.tablesData' array
@@ -61,26 +61,35 @@ class Tables extends Component {
 
       if (object.category !== lastCategory) {
 
-        tables.push(
-          <Table data={testData} key={index}/>
-        );
+        testData.category = object.category;
+        testData.heading.push('stocked');
+        testData.heading.push('name');
+        testData.heading.push('price');
+        testData.heading.push('size');
+        testData.tableData.push([ true, 'Baseball 1', '9.99', 'large' ]);
 
-        //console.log('>>>>>>>>>>>>>>>> Tables > !!!!!!!!! (object.category !== lastCategory) category:', object.category);
-        //console.log('>>>>>>>>>>>>>>>> Tables > !!!!!!!!! (object.category !== lastCategory) name:', object.name);
-        //console.log('>>>>>>>>>>>>>>>> Tables > !!!!!!!!! (object.category !== lastCategory) TABLES[INDEX]:', arr[index]);
-        //console.log('>>>>>>>>>>>>>>>> Tables > !!!!!!!!! (object.category !== lastCategory) TABLES[INDEX].category:', arr[index].category);
+        console.log('>>>>>>>>>>>>>>>> TABLES > object.category:', object.category);
+        // console.log('>>>>>>>>>>>>>>>> TABLES > tables[0].props:', tables[0].props);
+        // console.log('>>>>>>>>>>>>>>>> TABLES > tables[index]:', tables[index]);
+        // console.log('>>>>>>>>>>>>>>>> TABLES > arr[index]:', arr[index]);
       }
 
       if (object.category === lastCategory) {
 
-        //console.log('>>>>>>>>>>>>>>>> Tables > !!!!!!!!! (object.category === lastCategory) !!!!!!!!!:', object.category);
-        //console.log('>>>>>>>>>>>>>>>> Tables > !!!!!!!!! (object.category === lastCategory) !!!!!!!!!:', object.name);
+        testData.tableData.push([ true, 'Baseball 2', '11.99', 'medium' ]);
+        testData.tableData.push([ true, 'Baseball 3', '10.99', 'large' ]);
       }
 
-      // rows.push( {data: object, key={object.name} });
+      if (object.category !== lastCategory) {
+
+        tables.push(
+          <Table data={testData} key={index}/>
+        );
+      }
+
+      testData = { category: '', heading: [], tableData: [] };
 
       lastCategory = object.category;
-
     });
 
     return (
@@ -90,7 +99,6 @@ class Tables extends Component {
         {tables}
 
       </div>
-
     );
   }
 }
