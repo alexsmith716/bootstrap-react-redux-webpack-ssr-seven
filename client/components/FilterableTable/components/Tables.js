@@ -47,42 +47,34 @@ class Tables extends Component {
     // invoking arrow function specified for each element
     this.props.tablesData.forEach((object, index, arr) => {
 
-      if (object.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
-        return;
-      }
+      // if (object.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
+      //   return;
+      // }
 
-      if (inStockOnly && !object.stocked) {
-        return;
-      }
+      // if (inStockOnly && !object.stocked) {
+      //   return;
+      // }
 
       if (object.category !== lastCategory) {
 
         testData.category = object.category;
 
-        for(let p in object) {
-          console.log('>>>>>>>>>>>>>>>> TABLES > p in Object.keys(object) >>>>>>>>>>>>>>>>>PPPPPPPP>>>>>>>>>>>>>>>>>>:', p);
-          if (p !== 'category'){
-            testData.heading.push(p);
+        console.log('>>>>>>>>>>>>>>>> TABLES > (object.category !== lastCategory) 1 > object:', object.category, ' :: ', object);
+
+        for(let h in object) {
+          if (h !== 'category'){
+            testData.heading.push(h);
           }
         }
 
-        // testData.heading.push('stocked');
-        // testData.heading.push('name');
-        // testData.heading.push('price');
-        // testData.heading.push('size');
+        for(let b in object) {
+          if (b !== 'category'){
+            testData.tableData.push(object[b]);
+          }
+        }
 
-        testData.tableData.push([ true, 'Baseball 1', '9.99', 'large' ]);
-
-        console.log('>>>>>>>>>>>>>>>> TABLES > object.category >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>:', object.category);
-        console.log('>>>>>>>>>>>>>>>> TABLES > (object.category !== lastCategory) > object:', object.category, ' :: ', object);
-
-        console.log('>>>>>>>>>>>>>>>> TABLES > testData.heading.length >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>:', testData.heading.length);
-
-        // const keyys = Object.keys(object);
-        // console.log('>>>>>>>>>>>>>>>> TABLES > (object.category !== lastCategory) > typeof keyys:', object.category, ' :: ', typeof keyys);
-        // console.log('>>>>>>>>>>>>>>>> TABLES > (object.category !== lastCategory) > keyys.length:', object.category, ' :: ', keyys.length);
-        // console.log('>>>>>>>>>>>>>>>> TABLES > (object.category !== lastCategory) > keyys:', object.category, ' :: ', keyys);
-
+        // console.log('>>>>>>>>>>>>>>>> TABLES > object.category >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>:', object.category);
+        // console.log('>>>>>>>>>>>>>>>> TABLES > (object.category !== lastCategory) 1 > object:', object.category, ' :: ', object);
         // console.log('>>>>>>>>>>>>>>>> TABLES > tables[0].props:', tables[0].props);
         // console.log('>>>>>>>>>>>>>>>> TABLES > tables[index]:', tables[index]);
         // console.log('>>>>>>>>>>>>>>>> TABLES > arr[index]:', arr[index]);
@@ -91,12 +83,17 @@ class Tables extends Component {
       if (object.category === lastCategory) {
 
         console.log('>>>>>>>>>>>>>>>> TABLES > (object.category === lastCategory) > object:', object.category, ' :: ', object);
-        testData.tableData.push([ true, 'Baseball 2', '11.99', 'medium' ]);
-        testData.tableData.push([ true, 'Baseball 3', '10.99', 'large' ]);
-      }
+
+        for(let c in object) {
+          if (c !== 'category'){
+            testData.tableData.push(object[c]);
+          }
+        }
+      } else 
 
       if (object.category !== lastCategory) {
 
+        console.log('>>>>>>>>>>>>>>>> TABLES > (object.category !== lastCategory) 2 > object:', object.category, ' :: ', testData);
         tables.push(
           <Table data={testData} key={index}/>
         );

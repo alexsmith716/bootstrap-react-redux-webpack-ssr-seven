@@ -16,7 +16,7 @@ class TableBody extends Component {
   }
 
   static propTypes = {
-    // data: PropTypes.object
+    data: PropTypes.array
   };
 
   static defaultProps = {
@@ -25,13 +25,17 @@ class TableBody extends Component {
 
   render() {
 
-    //
+    // console.log('>>>>>>>>>>>>>>>> TableBody !!!!!!! > this.props.data:', this.props.data);
+
+    const rows = [];
+
+    rows.push( <TableRow data={ this.props.data } key={this.props.data} /> );
 
     return (
 
       <tbody>
 
-        TABLE BODY!
+        {rows}
 
       </tbody>
 

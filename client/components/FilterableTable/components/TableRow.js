@@ -4,12 +4,6 @@ import PropTypes from 'prop-types';
 import TableHeadData from './TableHeadData';
 import TableData from './TableData';
 
-// null: 'no value' for numbers and strings,  objects
-// Composition vs Inheritance
-
-// <tr>
-//   <TableData />
-// </tr>
 
 class TableRow extends Component {
 
@@ -31,22 +25,20 @@ class TableRow extends Component {
   };
 
   static defaultProps = {
-    type: null,
-    className: null
+    // type: null,
+    // className: null
   };
 
   render() {
 
-    console.log('>>>>>>>>>>>>>>>> TableRow > this.props.className:', this.props.className);
-    console.log('>>>>>>>>>>>>>>>> TableRow > this.props.category:', this.props.category);
-    console.log('>>>>>>>>>>>>>>>> TableRow > this.props.colSpan:', this.props.colSpan);
-    console.log('>>>>>>>>>>>>>>>> TableRow > this.props.data:', this.props.data);
+    // console.log('>>>>>>>>>>>>>>>> TableRow > this.props.className:', this.props.className);
+    // console.log('>>>>>>>>>>>>>>>> TableRow > this.props.category:', this.props.category);
+    // console.log('>>>>>>>>>>>>>>>> TableRow > this.props.colSpan:', this.props.colSpan);
+    // console.log('>>>>>>>>>>>>>>>> TableRow > this.props.data:', this.props.data);
 
-    const rows = [];
+    let rows = [];
 
     if (this.props.type && this.props.className) {
-
-      console.log('>>>>>>>>>>>>>>>> TableRow > THEAD > YESSSSSSS > type thead 111 <<<<<<<<<<<<<<<');
 
       return (
 
@@ -57,11 +49,9 @@ class TableRow extends Component {
 
     } else if (this.props.type && !this.props.className) {
 
-      console.log('>>>>>>>>>>>>>>>> TableRow > THEAD > YESSSSSSS > type thead 222 <<<<<<<<<<<<<<<');
-
-      for(let p in this.props.data) {
-        rows.push( <TableHeadData data={ this.props.data[p] } /> );
-      }
+      rows = this.props.data.map((object, index) =>
+        <TableHeadData key={index} data={object} />
+      );
 
       return (
 
@@ -74,12 +64,16 @@ class TableRow extends Component {
 
     } else {
 
-      console.log('>>>>>>>>>>>>>>>> TableRow > THEAD > NOOOOOOOOO > type thead 333 <<<<<<<<<<<<<<<');
+      rows = this.props.data.map((object, index) =>
+        <TableData key={index} data={object} />
+      );
 
       return (
 
         <tr>
-          <TableData />
+
+          {rows}
+
         </tr>
       );
     }

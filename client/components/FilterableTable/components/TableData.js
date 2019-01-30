@@ -14,7 +14,7 @@ class TableData extends Component {
   }
 
   static propTypes = {
-    // data: PropTypes.object
+    // data: PropTypes.
   };
 
   static defaultProps = {
@@ -23,15 +23,17 @@ class TableData extends Component {
 
   render() {
 
-    //
+    // console.log('>>>>>>>>>>>>>>>> TableData !!!!!!! > this.props.data:', this.props.data);
+
+    const d = JSON.stringify(this.props.data);
 
     return (
 
-      <td>
+        <td>
 
-        TABLE DATA!
+          { d }
 
-      </td>
+        </td>
 
     );
   }

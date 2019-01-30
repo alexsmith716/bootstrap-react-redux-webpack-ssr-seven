@@ -34,11 +34,9 @@ class TableHead extends Component {
     // const tempColSpan = Object.keys(this.props.data).length - 2;
     // console.log('>>>>>>>>>>>>>>>> TableHead > tempColSpan:', tempColSpan);
 
-    console.log('>>>>>>>>>>>>>>>> TableHead !!!!!!! > this.props.category:', this.props.category);
-    console.log('>>>>>>>>>>>>>>>> TableHead !!!!!!! > this.props.heading:', this.props.heading);
+    // console.log('>>>>>>>>>>>>>>>> TableHead !!!!!!! > this.props.category:', this.props.category);
+    // console.log('>>>>>>>>>>>>>>>> TableHead !!!!!!! > this.props.heading:', this.props.heading);
 
-
-    // <TableRow className="table-info" data={ this.props.data }/>
     const rows = [];
 
     rows.push( <TableRow type="thead" className="table-info" colSpan={ this.props.heading.length } category={ this.props.category } key="table-info" /> );

@@ -16,7 +16,7 @@ class TableHeadData extends Component {
   static propTypes = {
     colSpan: PropTypes.number,
     category: PropTypes.string,
-    data: PropTypes.array
+    data: PropTypes.string
   };
 
   static defaultProps = {
@@ -25,15 +25,11 @@ class TableHeadData extends Component {
 
   render() {
 
-    console.log('>>>>>>>>>>>>>>>> TableHeadData !!!!!!! > this.props.colSpan:', this.props.colSpan);
-    console.log('>>>>>>>>>>>>>>>> TableHeadData !!!!!!! > this.props.category:', this.props.category);
-    console.log('>>>>>>>>>>>>>>>> TableHeadData !!!!!!! > this.props.data:', this.props.data);
-
-    const rows = [];
+    // console.log('>>>>>>>>>>>>>>>> TableHeadData !!!!!!! > this.props.colSpan:', this.props.colSpan);
+    // console.log('>>>>>>>>>>>>>>>> TableHeadData !!!!!!! > this.props.category:', this.props.category);
+    // console.log('>>>>>>>>>>>>>>>> TableHeadData !!!!!!! > this.props.data:', this.props.data);
 
     if (this.props.colSpan) {
-
-      console.log('>>>>>>>>>>>>>>>> TableHeadData > this.props.colSpan > YESSSSSSS <<<<<<<<<<<<<<<');
 
       return (
 
@@ -43,11 +39,13 @@ class TableHeadData extends Component {
 
     } else {
 
-      console.log('>>>>>>>>>>>>>>>> TableHeadData > this.props.colSpan > NOOOOOOOO <<<<<<<<<<<<<<<');
-
       return (
 
-        <th scope="col">{this.props.data.charAt(0).toUpperCase()+this.props.data.slice(1)}</th>
+        <th scope="col">
+
+          {this.props.data.charAt(0).toUpperCase()+this.props.data.slice(1)}
+
+        </th>
 
       );
     }
