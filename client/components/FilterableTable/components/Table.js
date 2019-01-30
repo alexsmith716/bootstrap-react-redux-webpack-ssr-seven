@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import TableHead from './TableHead';
-// import TableBody from './TableBody';
+import TableBody from './TableBody';
 
-// <TableBody tableBodyData={data} />
+// <table className="table table-striped table-bordered table-sm">
 
 class Table extends Component {
 
@@ -25,18 +25,20 @@ class Table extends Component {
 
     const styles = require('./scss/Table.scss');
 
-    console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.DATA:', this.props.data);
-    console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.DATA.category:', this.props.data.category);
-    console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.DATA.heading:', this.props.data.heading);
-    console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.DATA.tableData:', this.props.data.tableData);
+    // console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.DATA:', this.props.data);
+    // console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.DATA.category:', this.props.data.category);
+    // console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.DATA.heading:', this.props.data.heading);
+    // console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.DATA.tableData:', this.props.data.tableData);
 
     return (
 
       <div className="table-responsive">
 
-        <table className="table table-striped">
+        <table className="table table-striped table-bordered table-sm">
 
           <TableHead category={this.props.data.category} heading={this.props.data.heading} />
+
+          <TableBody data={this.props.data.tableData} />
 
         </table>
 
