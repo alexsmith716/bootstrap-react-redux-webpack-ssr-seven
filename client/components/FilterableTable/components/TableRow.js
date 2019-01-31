@@ -17,11 +17,11 @@ class TableRow extends Component {
   }
 
   static propTypes = {
-    // type: PropTypes.string,
-    // className: PropTypes.string,
-    // colSpan: PropTypes.number,
-    // category: PropTypes.string,
-    // data: PropTypes.array
+    type: PropTypes.string,
+    className: PropTypes.string,
+    colSpan: PropTypes.number,
+    category: PropTypes.string,
+    data: PropTypes.array
   };
 
   static defaultProps = {
@@ -38,38 +38,41 @@ class TableRow extends Component {
 
     let rows = [];
 
-    if (this.props.type && this.props.className) {
+    if (this.props.type) {
 
-      console.log('>>>>>>>>>>>>>>>> TableRow > 111111111111111111 <<<<<<<<<<<<<<');
+      if (this.props.className) {
 
-      return (
+        console.log('>>>>>>>>>>>>>>>> TableRow > 111111111111111111 <<<<<<<<<<<<<<');
 
-        <tr className="table-info">
-          <th colSpan={this.props.colSpan}>{`${this.props.category.toUpperCase()} `}</th>
-        </tr>
-      );
+        return (
 
-    } else if (this.props.type && !this.props.className) {
+          <tr className="table-info">
+            <th colSpan={this.props.colSpan}>{`${this.props.category.toUpperCase()} `}</th>
+          </tr>
+        );
 
-      console.log('>>>>>>>>>>>>>>>> TableRow > 22222222222222222222 <<<<<<<<<<<<<<');
+      } else {
 
-      const thDataCols = this.props.data.map((object, index) =>
+        console.log('>>>>>>>>>>>>>>>> TableRow > 22222222222222222222 <<<<<<<<<<<<<<');
 
-        <th scope="col" key={index}>
+        const thDataCols = this.props.data.map((object, index) =>
 
-          { object.charAt(0).toUpperCase()+object.slice(1) }
+          <th scope="col" key={index}>
 
-        </th>
-      );
+            { object.charAt(0).toUpperCase()+object.slice(1) }
 
-      return (
+          </th>
+        );
 
-        <tr>
+        return (
 
-          { thDataCols }
+          <tr>
 
-        </tr>
-      );
+            { thDataCols }
+
+          </tr>
+        );
+      }
 
     } else {
 
@@ -82,6 +85,7 @@ class TableRow extends Component {
           { object }
 
         </td>
+      );
 
       return (
 
