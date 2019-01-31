@@ -16,9 +16,9 @@ class TableHead extends Component {
   }
 
   static propTypes = {
-    // category: PropTypes.string,
-    // heading: PropTypes.array
-    // data: PropTypes.array
+    category: PropTypes.string,
+    heading: PropTypes.array,
+    data: PropTypes.array
   };
 
   static defaultProps = {

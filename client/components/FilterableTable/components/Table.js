@@ -18,7 +18,7 @@ class Table extends Component {
   }
 
   static propTypes = {
-    // data: PropTypes.object.isRequired,
+    data: PropTypes.object.isRequired,
   };
 
   render() {
