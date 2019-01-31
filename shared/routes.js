@@ -16,12 +16,12 @@ const routes = [{
   routes: [
     { path: '/', exact: true, component: Home },
     { path: '/about', component: About },
-    { path: '/about-one', component: AboutOne },
-    { path: '/about-two', component: AboutTwo },
-    { path: '/about-three', component: AboutThree },
-    { path: '/about-four', component: AboutFour },
-    { path: '/sticky-footer', component: StickyFooter },
-    { path: '/board-games', component: BoardGames },
+    { path: '/aboutone', component: AboutOne },
+    { path: '/abouttwo', component: AboutTwo },
+    { path: '/aboutthree', component: AboutThree },
+    { path: '/aboutfour', component: AboutFour },
+    { path: '/stickyfooter', component: StickyFooter },
+    { path: '/boardgames', component: BoardGames },
     { path: '/login', component: Login },
     { path: '/register', component: Register },
     { component: NotFound }
