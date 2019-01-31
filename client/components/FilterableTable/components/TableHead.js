@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 
 import TableRow from './TableRow';
 
-// null: 'no value' for numbers and strings,  objects
-// Composition vs Inheritance
-
 
 class TableHead extends Component {
 
@@ -19,8 +16,9 @@ class TableHead extends Component {
   }
 
   static propTypes = {
-    category: PropTypes.string,
-    heading: PropTypes.array
+    // category: PropTypes.string,
+    // heading: PropTypes.array
+    // data: PropTypes.array
   };
 
   static defaultProps = {
@@ -29,24 +27,26 @@ class TableHead extends Component {
 
   render() {
 
-    // const category = this.props.data.category;
-    // console.log('>>>>>>>>>>>>>>>> TableHead > this.props.data:', this.props.data);
-    // const tempColSpan = Object.keys(this.props.data).length - 2;
-    // console.log('>>>>>>>>>>>>>>>> TableHead > tempColSpan:', tempColSpan);
+    console.log('>>>>>>>>>>>>>>>> TableHead > this.props.data:', this.props.data);
 
-    // console.log('>>>>>>>>>>>>>>>> TableHead !!!!!!! > this.props.category:', this.props.category);
-    // console.log('>>>>>>>>>>>>>>>> TableHead !!!!!!! > this.props.heading:', this.props.heading);
+    let rows = [];
 
-    const rows = [];
+    this.props.data.forEach((object, index, arr) => {
 
-    rows.push( <TableRow type="thead" className="table-info" colSpan={ this.props.heading.length } category={ this.props.category } key="table-info" /> );
+      if (object.category) {
+        rows.push( <TableRow type="thead" className="table-info" colSpan={ object.heading.length } category={ object.category } key="table-info" /> );
+      }
 
-    rows.push( <TableRow type="thead" data={ this.props.heading } key={this.props.heading} /> );
+      rows.push( <TableRow type="thead" data={ object.heading } key={ index } /> );
+
+    });
+
+    console.log('>>>>>>>>>>>>>>>> TableHead !!!!!!! > rows:', rows);
 
     return (
 
       <thead>
-
+  
         {rows}
 
       </thead>
@@ -56,19 +56,3 @@ class TableHead extends Component {
 }
 
 export default TableHead;
-
-//
-// <table className="table table-striped">
-
-//   <thead>
-
-//     <tr className="table-info">
-//       <th colSpan={tempColSpan}>{`${category} `}</th>
-//     </tr>
-
-//     <tr>
-//       <th scope="col">Name</th>
-//       <th scope="col">Price</th>
-//     </tr>
-
-//   </thead>

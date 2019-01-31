@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-// import ProductTable from './ProductTable';
 import Table from './Table';
 
 
@@ -29,7 +28,7 @@ class Tables extends Component {
 
     const tables = [];
 
-    // let testData = {
+    // tableObject = {
     //   category: 'Sporting Goods 2',
     //   heading: [ 'stocked', 'name', 'price', 'size' ],
     //   tableData: [ 
@@ -39,69 +38,38 @@ class Tables extends Component {
     //   ] 
     // };
 
-    let testData = { category: '', heading: [], tableData: [] };
+    let tableObject = { category: '', heading: [], tableData: [] };
 
     let lastCategory = null;
 
-    // iterate through 'this.props.tablesData' array
-    // invoking arrow function specified for each element
-    this.props.tablesData.forEach((object, index, arr) => {
+    this.props.tablesData.forEach((tablesDataObject, index, arr) => {
 
-      // if (object.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
-      //   return;
-      // }
+      // evaluate if category is already a "Table"
+      tables.forEach((obj, index, arr) => {
 
-      // if (inStockOnly && !object.stocked) {
-      //   return;
-      // }
-
-      if (object.category !== lastCategory) {
-
-        testData.category = object.category;
-
-        console.log('>>>>>>>>>>>>>>>> TABLES > (object.category !== lastCategory) 1 > object:', object.category, ' :: ', object);
-
-        for(let h in object) {
-          if (h !== 'category'){
-            testData.heading.push(h);
-          }
+        if (obj.props.data.category === tablesDataObject.category) {
+          obj.props.data.tableData.push( Object.values(tablesDataObject));
         }
+      });
 
-        for(let b in object) {
-          if (b !== 'category'){
-            testData.tableData.push(object[b]);
-          }
-        }
+      if (tablesDataObject.category !== lastCategory) {
 
-        // console.log('>>>>>>>>>>>>>>>> TABLES > object.category >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>:', object.category);
-        // console.log('>>>>>>>>>>>>>>>> TABLES > (object.category !== lastCategory) 1 > object:', object.category, ' :: ', object);
-        // console.log('>>>>>>>>>>>>>>>> TABLES > tables[0].props:', tables[0].props);
-        // console.log('>>>>>>>>>>>>>>>> TABLES > tables[index]:', tables[index]);
-        // console.log('>>>>>>>>>>>>>>>> TABLES > arr[index]:', arr[index]);
-      }
+        tableObject.category = tablesDataObject.category;
 
-      if (object.category === lastCategory) {
+        tableObject.tableData.push( Object.values(tablesDataObject) );
 
-        console.log('>>>>>>>>>>>>>>>> TABLES > (object.category === lastCategory) > object:', object.category, ' :: ', object);
+        Object.keys(tablesDataObject).forEach((o) => {
+          tableObject.heading.push( o );
+        })
 
-        for(let c in object) {
-          if (c !== 'category'){
-            testData.tableData.push(object[c]);
-          }
-        }
-      } else 
-
-      if (object.category !== lastCategory) {
-
-        console.log('>>>>>>>>>>>>>>>> TABLES > (object.category !== lastCategory) 2 > object:', object.category, ' :: ', testData);
         tables.push(
-          <Table data={testData} key={index}/>
+          <Table data={ tableObject } key={index}/>
         );
       }
 
-      testData = { category: '', heading: [], tableData: [] };
+      tableObject = { category: '', heading: [], tableData: [] };
 
-      lastCategory = object.category;
+      lastCategory = tablesDataObject.category;
     });
 
     return (

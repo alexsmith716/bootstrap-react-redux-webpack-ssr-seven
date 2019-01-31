@@ -18,17 +18,14 @@ class Table extends Component {
   }
 
   static propTypes = {
-    data: PropTypes.object.isRequired,
+    // data: PropTypes.object.isRequired,
   };
 
   render() {
 
     const styles = require('./scss/Table.scss');
 
-    // console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.DATA:', this.props.data);
-    // console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.DATA.category:', this.props.data.category);
-    // console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.DATA.heading:', this.props.data.heading);
-    // console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.DATA.tableData:', this.props.data.tableData);
+    console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.DATA:', this.props.data);
 
     return (
 
@@ -36,9 +33,7 @@ class Table extends Component {
 
         <table className="table table-striped table-bordered table-sm">
 
-          <TableHead category={this.props.data.category} heading={this.props.data.heading} />
-
-          <TableBody data={this.props.data.tableData} />
+          <TableHead data={ [this.props.data] } />
 
         </table>
 
