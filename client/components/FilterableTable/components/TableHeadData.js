@@ -14,9 +14,9 @@ class TableHeadData extends Component {
   }
 
   static propTypes = {
-    colSpan: PropTypes.number,
-    category: PropTypes.string,
-    data: PropTypes.string
+    // colSpan: PropTypes.number,
+    // category: PropTypes.string,
+    // data: PropTypes.array
   };
 
   static defaultProps = {
@@ -29,7 +29,10 @@ class TableHeadData extends Component {
     // console.log('>>>>>>>>>>>>>>>> TableHeadData !!!!!!! > this.props.category:', this.props.category);
     // console.log('>>>>>>>>>>>>>>>> TableHeadData !!!!!!! > this.props.data:', this.props.data);
 
+    // {this.props.data.charAt(0).toUpperCase()+this.props.data.slice(1)}
     if (this.props.colSpan) {
+
+      console.log('>>>>>>>>>>>>>>>> TableHeadData !!!!!!! > COLSPAN > CATEGORY:', this.props.colSpan, ' :: ', this.props.category);
 
       return (
 
@@ -39,26 +42,24 @@ class TableHeadData extends Component {
 
     } else {
 
+      console.log('>>>>>>>>>>>>>>>> TableHeadData !!!!!!! > th scope > this.props.data:', this.props.data);
+
+      const thData = this.props.data.map((object, index) =>
+        { Object.values(object) }
+      );
+
+      console.log('>>>>>>>>>>>>>>>> TableHeadData !!!!!!! > th scope > thData:', thData);
+
       return (
 
         <th scope="col">
 
-          {this.props.data.charAt(0).toUpperCase()+this.props.data.slice(1)}
+          { thData }
 
         </th>
 
       );
     }
-
-    return (
-
-      <th>
-
-        TABLE HEAD DATA!
-
-      </th>
-
-    );
   }
 }
 

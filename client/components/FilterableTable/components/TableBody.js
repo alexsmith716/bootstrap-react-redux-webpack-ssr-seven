@@ -25,11 +25,15 @@ class TableBody extends Component {
 
   render() {
 
-    // console.log('>>>>>>>>>>>>>>>> TableBody !!!!!!! > this.props.data:', this.props.data);
+    console.log('>>>>>>>>>>>>>>>> TableBody !!!!!!! > this.props.data:', this.props.data);
 
-    const rows = [];
+    let rows = [];
 
-    rows.push( <TableRow data={ this.props.data } key={this.props.data} /> );
+    rows = this.props.data.map((object, index) =>
+      <TableRow data={ object } key={ index }  />
+    );
+
+    // rows.push( <TableRow data={ this.props.data } key={this.props.data} /> );
 
     return (
 
