@@ -16,7 +16,7 @@ class TableBody extends Component {
   }
 
   static propTypes = {
-    data: PropTypes.array
+    tableData: PropTypes.array
   };
 
   static defaultProps = {
@@ -25,15 +25,14 @@ class TableBody extends Component {
 
   render() {
 
-    console.log('>>>>>>>>>>>>>>>> TableBody !!!!!!! > this.props.data:', this.props.data);
+    // console.log('>>>>>>>>>>>>>>>> TableBody !!!!!! > this.props.data: ', this.props.tableData);
 
     let rows = [];
 
-    rows = this.props.data.map((object, index) =>
-      <TableRow data={ object } key={ index }  />
-    );
-
-    // rows.push( <TableRow data={ this.props.data } key={this.props.data} /> );
+    this.props.tableData.forEach((obj, index, arr) => {
+      // console.log('>>>>>>>>>>>>>>>> TableBody !!!!!! > this.props.tableData.forEach: ', obj);
+      rows.push( <TableRow data={ obj } key={ index } /> );
+    });
 
     return (
 
