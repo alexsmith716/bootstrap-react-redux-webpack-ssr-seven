@@ -18,7 +18,6 @@ class TableHead extends Component {
   static propTypes = {
     category: PropTypes.string,
     heading: PropTypes.array,
-    tableData: PropTypes.array
   };
 
   static defaultProps = {
@@ -27,20 +26,20 @@ class TableHead extends Component {
 
   render() {
 
-    console.log('>>>>>>>>>>>>>>>> TableHead > this.props.data:', this.props.data);
+    // console.log('>>>>>>>>>>>>>>>> TableHead > this.props.data:', this.props.data);
 
     let rows = [];
 
     rows.push( <TableRow type="thead" className="table-info" colSpan={ this.props.heading.length } category={ this.props.category } key="table-info" /> );
 
-    rows.push( <TableRow type="thead" data={ this.props.heading } /> );
+    rows.push( <TableRow type="thead" data={ this.props.heading } key={ this.props.heading } /> );
 
-    console.log('>>>>>>>>>>>>>>>> TableHead !!!!!!! > rows:', rows);
+    // console.log('>>>>>>>>>>>>>>>> TableHead !!!!!!! > rows:', rows);
 
     return (
 
       <thead>
-  
+
         {rows}
 
       </thead>

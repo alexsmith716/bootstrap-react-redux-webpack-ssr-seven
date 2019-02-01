@@ -25,7 +25,7 @@ class Table extends Component {
 
     const styles = require('./scss/Table.scss');
 
-    console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.DATA:', this.props.data);
+    // console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.DATA:', this.props.data);
 
     return (
 
@@ -34,6 +34,8 @@ class Table extends Component {
         <table className="table table-striped table-bordered table-sm">
 
           <TableHead category={ this.props.data.category } heading={ this.props.data.heading } />
+
+          <TableBody tableData={ this.props.data.tableData } />
 
         </table>
 

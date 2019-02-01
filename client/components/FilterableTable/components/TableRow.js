@@ -33,8 +33,8 @@ class TableRow extends Component {
 
     // console.log('>>>>>>>>>>>>>>>> TableRow > this.props.className:', this.props.className);
     // console.log('>>>>>>>>>>>>>>>> TableRow > this.props.category:', this.props.category);
-    console.log('>>>>>>>>>>>>>>>> TableRow > this.props.colSpan:', this.props.colSpan);
-    console.log('>>>>>>>>>>>>>>>> TableRow > this.props.data:', this.props.data);
+    // console.log('>>>>>>>>>>>>>>>> TableRow > this.props.colSpan:', this.props.colSpan);
+    // console.log('>>>>>>>>>>>>>>>> TableRow > this.props.data:', this.props.data);
 
     let rows = [];
 
@@ -42,7 +42,7 @@ class TableRow extends Component {
 
       if (this.props.className) {
 
-        console.log('>>>>>>>>>>>>>>>> TableRow > 111111111111111111 <<<<<<<<<<<<<<');
+        // console.log('>>>>>>>>>>>>>>>> TableRow > 111111111111111111 <<<<<<<<<<<<<<');
 
         return (
 
@@ -53,7 +53,7 @@ class TableRow extends Component {
 
       } else {
 
-        console.log('>>>>>>>>>>>>>>>> TableRow > 22222222222222222222 <<<<<<<<<<<<<<');
+        // console.log('>>>>>>>>>>>>>>>> TableRow > 22222222222222222222 <<<<<<<<<<<<<<');
 
         const thDataCols = this.props.data.map((object, index) =>
 
@@ -76,7 +76,7 @@ class TableRow extends Component {
 
     } else {
 
-      console.log('>>>>>>>>>>>>>>>> TableRow > 333333333333333333 <<<<<<<<<<<<<<');
+      // console.log('>>>>>>>>>>>>>>>> TableRow > 333333333333333333 <<<<<<<<<<<<<<');
 
       const tDataCols = this.props.data.map((object, index) =>
 

@@ -27,6 +27,9 @@ class Tables extends Component {
     const inStockOnly = this.props.inStockOnly;
 
     const tables = [];
+    let tableObject = { category: '', heading: [], tableData: [] };
+    let lastCategory = null;
+    let tableDataArr = [];
 
     // tableObject = {
     //   category: 'Sporting Goods 2',
@@ -38,37 +41,56 @@ class Tables extends Component {
     //   ] 
     // };
 
-    let tableObject = { category: '', heading: [], tableData: [] };
-
-    let lastCategory = null;
+    // ======================================================================================================
 
     this.props.tablesData.forEach((tablesDataObject, index, arr) => {
 
-      // evaluate if category is already a "Table"
+      // ================================================================================
+
+      // evaluate if category is already a "Table" "tableObject"
       tables.forEach((obj, index, arr) => {
 
         if (obj.props.data.category === tablesDataObject.category) {
-          obj.props.data.tableData.push( Object.values(tablesDataObject));
+
+          Object.values(tablesDataObject).map((objX, index) => {
+            objX !== tablesDataObject.category ? tableDataArr.push( String(objX) ) : null;
+          });
+
+          obj.props.data.tableData.push( tableDataArr );
+
+          tableDataArr = [];
         }
       });
+
+      // ================================================================================
 
       if (tablesDataObject.category !== lastCategory) {
 
         tableObject.category = tablesDataObject.category;
 
-        tableObject.tableData.push( Object.values(tablesDataObject) );
+        // -------------------------- HEADING ------------------------------------
 
-        Object.keys(tablesDataObject).forEach((o) => {
-          tableObject.heading.push( o );
+        Object.keys(tablesDataObject).forEach((obj) => {
+          obj !== 'category' ? tableObject.heading.push( obj ) : null;
         })
+
+        // -------------------------- TABLEDATA ------------------------------------
+
+        Object.values(tablesDataObject).map((obj, index) => {
+          obj !== tablesDataObject.category ? tableDataArr.push( String(obj) ) : null;
+        });
+
+        tableObject.tableData.push( tableDataArr )
+
+        // -----------------------------------------------------------------------
 
         tables.push(
           <Table data={ tableObject } key={index}/>
         );
       }
 
+      tableDataArr = [];
       tableObject = { category: '', heading: [], tableData: [] };
-
       lastCategory = tablesDataObject.category;
     });
 
