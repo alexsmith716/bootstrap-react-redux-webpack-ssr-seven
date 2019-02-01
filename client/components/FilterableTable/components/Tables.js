@@ -52,13 +52,11 @@ class Tables extends Component {
 
         if (obj.props.data.category === tablesDataObject.category) {
 
-          Object.values(tablesDataObject).map((objX, index) => {
-            objX !== tablesDataObject.category ? tableDataArr.push( String(objX) ) : null;
+          Object.values(tablesDataObject).map((obj, index) => {
+            obj !== tablesDataObject.category ? tableDataArr.push( String(obj) ) : null;
           });
 
           obj.props.data.tableData.push( tableDataArr );
-
-          tableDataArr = [];
         }
       });
 
