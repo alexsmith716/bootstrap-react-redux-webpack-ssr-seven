@@ -18,7 +18,7 @@ class TableHead extends Component {
   static propTypes = {
     category: PropTypes.string,
     heading: PropTypes.array,
-    data: PropTypes.array
+    tableData: PropTypes.array
   };
 
   static defaultProps = {
@@ -31,15 +31,9 @@ class TableHead extends Component {
 
     let rows = [];
 
-    this.props.data.forEach((object, index, arr) => {
+    rows.push( <TableRow type="thead" className="table-info" colSpan={ this.props.heading.length } category={ this.props.category } key="table-info" /> );
 
-      if (object.category) {
-        rows.push( <TableRow type="thead" className="table-info" colSpan={ object.heading.length } category={ object.category } key="table-info" /> );
-      }
-
-      rows.push( <TableRow type="thead" data={ object.heading } key={ index } /> );
-
-    });
+    rows.push( <TableRow type="thead" data={ this.props.heading } /> );
 
     console.log('>>>>>>>>>>>>>>>> TableHead !!!!!!! > rows:', rows);
 
