@@ -33,7 +33,7 @@ class Table extends Component {
 
         <table className="table table-striped table-bordered table-sm">
 
-          <TableHead data={ [this.props.data] } />
+          <TableHead category={ this.props.data.category } heading={ this.props.data.heading } />
 
         </table>
 
