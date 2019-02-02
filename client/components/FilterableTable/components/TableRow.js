@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-// import TableHeadData from './TableHeadData';
-// import TableData from './TableData';
-
 
 class TableRow extends Component {
 

@@ -9,7 +9,6 @@ import renderRoutes from 'react-router-config/renderRoutes';
 import { provideHooks } from 'redial';
 
 import Helmet from 'react-helmet';
-import qs from 'qs';
 
 import { Link } from 'react-router-dom';
 

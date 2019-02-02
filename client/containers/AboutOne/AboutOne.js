@@ -8,6 +8,8 @@ import Clock from '../../components/widgets/Clock/Clock';
 import RandomBootstrapAlert from '../../components/widgets/RandomBootstrapAlert/RandomBootstrapAlert';
 import FilterableTable from '../../components/FilterableTable/FilterableTable';
 
+import Calculator from '../../components/widgets/LiftingStateUP/Calculator';
+
 
 class AboutOne extends Component {
 
@@ -85,6 +87,29 @@ class AboutOne extends Component {
                 </h5>
 
                 <AxiosComponentLoaderBasic component={FilterableTable} requestURL={uri} />
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="row">
+
+          <div className="col-lg-12 mb-4">
+
+            <div className="card h-100">
+
+              <h2 className="card-header text-center">
+                Thinking in React!
+              </h2>
+
+              <div className="card-body">
+
+                <h5 className="card-title text-center">
+                  Lifting State Up
+                </h5>
+
+                <Calculator />
 
               </div>
             </div>

@@ -202,6 +202,7 @@ export default ({ clientStats }) => async (req, res) => {
     }
 
     console.log('>>>>>>>>>>>>>>>>> SERVER > __DISABLE_SSR__:', __DISABLE_SSR__);
+
     if (__DISABLE_SSR__) {
       return hydrate();
     }
