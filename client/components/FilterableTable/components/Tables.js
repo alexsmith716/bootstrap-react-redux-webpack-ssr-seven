@@ -47,7 +47,7 @@ class Tables extends Component {
 
       // ================================================================================
 
-      // evaluate if category is already a "Table" "tableObject"
+      // evaluate if category is already a 'Table' 'tableObject'
       tables.forEach((obj, index, arr) => {
 
         if (obj.props.data.category === tablesDataObject.category) {
