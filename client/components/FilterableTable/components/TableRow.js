@@ -44,7 +44,9 @@ class TableRow extends Component {
         return (
 
           <tr className="table-info">
+
             <th colSpan={this.props.colSpan}>{`${this.props.category.toUpperCase()} `}</th>
+
           </tr>
         );
 

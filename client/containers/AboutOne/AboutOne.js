@@ -8,7 +8,7 @@ import Clock from '../../components/widgets/Clock/Clock';
 import RandomBootstrapAlert from '../../components/widgets/RandomBootstrapAlert/RandomBootstrapAlert';
 import FilterableTable from '../../components/FilterableTable/FilterableTable';
 
-import Calculator from '../../components/widgets/LiftingStateUP/Calculator';
+import Calculator from '../../components/widgets/LiftingStateUp/Calculator';
 
 
 class AboutOne extends Component {
