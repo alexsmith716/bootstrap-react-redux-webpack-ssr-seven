@@ -7,7 +7,7 @@ import AboutTwo from '../client/containers/AboutTwo/Loadable';
 import AboutThree from '../client/containers/AboutThree/Loadable';
 import AboutFour from '../client/containers/AboutFour/Loadable';
 import StickyFooter from '../client/containers/StickyFooter/Loadable';
-import BoardGames from '../client/containers/Games/BoardGames/Loadable';
+import BoardGames from '../client/containers/games/BoardGames/Loadable';
 import Login from '../client/containers/Login/Loadable';
 import Register from '../client/containers/Register/Loadable';
 

@@ -3,6 +3,7 @@ import Helmet from 'react-helmet';
 
 import TicTacToe from '../../../components/games/boardGames/TicTacToe/TicTacToe';
 
+
 class BoardGames extends Component {
 
   UNSAFE_componentWillMount() {
@@ -27,16 +28,18 @@ class BoardGames extends Component {
 
         <Helmet title="Board Games" />
 
-        <h1 className={`mt-4 mb-3 ${styles.boardGamesUniqueColor}`}>Board Games</h1>
+        <h1 className={`mt-4 mb-3 ${styles.uniqueColor}`}>Board Games</h1>
 
         <div className="row">
+
           <div className="col-lg-12">
+
             <TicTacToe />
+
           </div>
         </div>
 
       </div>
-
     );
   }
 }

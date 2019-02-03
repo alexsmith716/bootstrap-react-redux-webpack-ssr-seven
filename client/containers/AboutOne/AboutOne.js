@@ -119,6 +119,6 @@ class AboutOne extends Component {
       </div>
     );
   }
-};
+}
 
 export default AboutOne;
