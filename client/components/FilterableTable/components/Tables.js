@@ -45,6 +45,14 @@ class Tables extends Component {
 
     this.props.tablesData.forEach((tablesDataObject, index, arr) => {
 
+      if (tablesDataObject.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
+        return;
+      }
+
+      if (inStockOnly && !tablesDataObject.stocked) {
+        return;
+      }
+
       // ================================================================================
 
       // evaluate if category is already a 'Table' 'tableObject'

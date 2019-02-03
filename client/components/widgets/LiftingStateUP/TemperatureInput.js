@@ -32,7 +32,7 @@ class TemperatureInput extends Component {
           type="text"
           className="form-control"
           id="temperatureInput"
-          placeholder={`${scaleNames[scale]} value...`}
+          placeholder={ `${scaleNames[scale]} value...` }
           value={ temperature }
           onChange={ this.handleChange }
         />
