@@ -1,24 +1,65 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import Square from './Square';
+
 
 class Board extends Component {
 
-  createBoard(row, col) {
+  constructor(props) {
 
-    return board;
+    super(props);
+
+    // this.state = {
+
+    // };
   }
+
+  static propTypes = {
+    // 
+  };
 
   renderSquare(i) {
 
     return (
-      <Square
 
+      <Square
+        value={this.props.squares[i]}
+        onClick={() => this.props.onClick(i)}
       />
+
     );
   }
 
   render() {
-    return <div>{this.createBoard(3, 3)}</div>;
+
+    const styles = require('./scss/TicTacToe.scss');
+
+    return (
+
+      <div>
+
+        <div className={styles.boardRow}>
+          {this.renderSquare(0)}
+          {this.renderSquare(1)}
+          {this.renderSquare(2)}
+        </div>
+
+        <div className={styles.boardRow}>
+          {this.renderSquare(3)}
+          {this.renderSquare(4)}
+          {this.renderSquare(5)}
+        </div>
+
+        <div className={styles.boardRow}>
+          {this.renderSquare(6)}
+          {this.renderSquare(7)}
+          {this.renderSquare(8)}
+        </div>
+
+      </div>
+
+    );
   }
 }
 

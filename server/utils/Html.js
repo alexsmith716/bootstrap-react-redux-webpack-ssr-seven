@@ -52,6 +52,9 @@ const Html = ({ assets, content }) => {
         {/* (>>>>>>> CONTENT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<) */}
         <div id="content" dangerouslySetInnerHTML={{ __html: content }} />
 
+        {/* (>>>>>>> testing <<<<<<<<<<<<<<<<<<<<<<<<<<<<<) */}
+        {/* <div id="errors" /> */}
+
         {/* (will be present only in development mode) */}
         { __DLLS__ && <script key="dlls__vendor" src="/dlls/dll__vendor.js" charSet="UTF-8" /> }
 
