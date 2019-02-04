@@ -6,16 +6,29 @@ const scaleNames = {
   f: 'Fahrenheit'
 };
 
+
 class TemperatureInput extends Component {
 
   constructor(props) {
     super(props);
+
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(e) {
+  // -----------------------------------------------------------
+
+  static propTypes = {
+    onTemperatureChange: PropTypes.func
+  };
+
+  // -----------------------------------------------------------
+
+  // 'handleChange' calling prop method 'onTemperatureChange'
+  handleChange = (e) => {
     this.props.onTemperatureChange(e.target.value);
   }
+
+  // -----------------------------------------------------------
 
   render() {
 
@@ -32,9 +45,13 @@ class TemperatureInput extends Component {
           type="text"
           className="form-control"
           id="temperatureInput"
+
           placeholder={ `${scaleNames[scale]} value...` }
+
           value={ temperature }
+
           onChange={ this.handleChange }
+
         />
 
       </div>

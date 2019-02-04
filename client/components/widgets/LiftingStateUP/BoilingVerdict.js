@@ -17,7 +17,7 @@ const BoilingVerdict = props => {
 }
 
 BoilingVerdict.propTypes = {
-  // celsius: PropTypes.string.isRequired,
+  celsius: PropTypes.number.isRequired
 };
 
 export default BoilingVerdict;
