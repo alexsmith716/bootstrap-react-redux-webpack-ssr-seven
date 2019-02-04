@@ -8,7 +8,7 @@ import Clock from '../../components/widgets/Clock/Clock';
 import RandomBootstrapAlert from '../../components/widgets/RandomBootstrapAlert/RandomBootstrapAlert';
 import FilterableTable from '../../components/FilterableTable/FilterableTable';
 
-import Calculator from '../../components/widgets/LiftingStateUp/Calculator';
+import TemperatureCalculator from '../../components/widgets/LiftingStateUp/TemperatureCalculator';
 
 
 class AboutOne extends Component {
@@ -109,7 +109,7 @@ class AboutOne extends Component {
                   Lifting State Up
                 </h5>
 
-                <Calculator />
+                <TemperatureCalculator />
 
               </div>
             </div>

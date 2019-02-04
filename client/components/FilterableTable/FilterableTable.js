@@ -23,6 +23,8 @@ import Tables from './components/Tables';
 // State (changes) allows React components to change their output over time in response to user actions, 
 // network responses, and anything else without violating 'pure function' rule
 
+// Active, Default, Primary, Secondary, Success, Danger, Warning, Info, Dark
+
 class FilterableTable extends Component {
 
   constructor(props) {
