@@ -10,9 +10,10 @@ class TableHead extends Component {
 
     super(props);
 
-    // this.state = {
-
-    // };
+    this.state = {
+      // headingColor: this.getRandomAlert()
+      headingColor: 'default'
+    };
   }
 
   static propTypes = {
@@ -24,17 +25,37 @@ class TableHead extends Component {
     //
   };
 
+  componentDidMount() {
+    console.log('>>>>>>>>>>>>>>>> TABLEHEAD > componentDidMount <<<<<<<<<<<<<<<<<<<<<<');
+    this.timerID = setInterval( () => this.callbackFunction(), 5000 );
+  }
+
+  componentWillUnmount() {
+    console.log('>>>>>>>>>>>>>>>> TABLEHEAD > componentWillUnmount <<<<<<<<<<<<<<<<<<<<<<');
+    clearInterval(this.timerID);
+  }
+
+  getRandomAlert = () => {
+    const alerts = ['active','default', 'primary','secondary','success','danger','warning','info','light', 'dark'];
+    const randomAlert = alerts[ Math.floor( Math.random() * alerts.length ) ];
+    return randomAlert;
+  }
+
+  callbackFunction = () => this.setState({ headingColor: this.getRandomAlert() });
+
   render() {
 
-    // console.log('>>>>>>>>>>>>>>>> TableHead > this.props.data:', this.props.data);
+    // console.log('>>>>>>>>>>>>>>>> TABLEHEAD > this.props.data:', this.props.data);
+    const headingColor = this.state.headingColor;
+    // console.log('>>>>>>>>>>>>>>>> TABLEHEAD > STATE > headingColor !!!:', headingColor);
 
     let rows = [];
 
-    rows.push( <TableRow type="thead" className="table-info" colSpan={ this.props.heading.length } category={ this.props.category } key="table-info" /> );
+    rows.push( <TableRow type="thead" colSpan={ this.props.heading.length } category={ this.props.category } headingColor={ headingColor } key="thead-category" /> );
 
     rows.push( <TableRow type="thead" data={ this.props.heading } key={ this.props.heading } /> );
 
-    // console.log('>>>>>>>>>>>>>>>> TableHead !!!!!!! > rows:', rows);
+    // console.log('>>>>>>>>>>>>>>>> TABLEHEAD !!!!!!! > rows:', rows);
 
     return (
 

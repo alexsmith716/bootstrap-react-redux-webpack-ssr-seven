@@ -21,6 +21,14 @@ class Tables extends Component {
     inStockOnly: PropTypes.bool
   };
 
+  componentDidMount() {
+    console.log('>>>>>>>>>>>>>>>> TABLES > componentDidMount <<<<<<<<<<<<<<<<<<<<<<');
+  }
+
+  componentWillUnmount() {
+    console.log('>>>>>>>>>>>>>>>> TABLES > componentWillUnmount <<<<<<<<<<<<<<<<<<<<<<');
+  }
+
   render() {
 
     const filterText = this.props.filterText;

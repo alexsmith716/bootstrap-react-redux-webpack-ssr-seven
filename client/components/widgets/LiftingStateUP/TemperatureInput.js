@@ -18,6 +18,8 @@ class TemperatureInput extends Component {
   // -----------------------------------------------------------
 
   static propTypes = {
+    scale: PropTypes.string,
+    temperature: PropTypes.string,
     onTemperatureChange: PropTypes.func
   };
 
