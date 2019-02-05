@@ -8,6 +8,8 @@ App is a continuation of repo `bootstrap-react-redux-webpack-ssr-six`. Picks up 
 
 Initial push of this app is `refactor(dev config devtool): using devtool inline-source-map for client and source-map for server`.
 
+### STATE
+
 
 ### OBJECTS
 
@@ -176,27 +178,3 @@ var Bork = function Bork() {
 Bork.a = 'foo';
 Bork.b = void 0;
 `
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

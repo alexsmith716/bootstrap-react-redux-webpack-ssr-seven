@@ -42,6 +42,22 @@ class TemperatureCalculator extends Component {
     };
   }
 
+  componentDidMount() {
+    console.log('>>>>>>>>>>>>>>>> TemperatureCalculator > componentDidMount <<<<<<<<<<<<<<<<<<<<<<');
+  }
+
+  componentWillUnmount() {
+    console.log('>>>>>>>>>>>>>>>> TemperatureCalculator > componentWillUnmount <<<<<<<<<<<<<<<<<<<<<<');
+  }
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log('>>>>>>>>>>>>>>>> TemperatureCalculator > shouldComponentUpdate <<<<<<<<<<<<<<<<<<<<<<');
+  // };
+
+  // static getDerivedStateFromProps(props, state) {
+  //   console.log('>>>>>>>>>>>>>>>> TemperatureCalculator > getDerivedStateFromProps <<<<<<<<<<<<<<<<<<<<<<');
+  // };
+
   // yes, single parameter (skip parenthesis) more than one (parenthesis required)
   // one returned expression (skip curly braces) more than one (curly braces required with return keyword)
   handleCelsiusChange = (temperature) => {
@@ -73,6 +89,8 @@ class TemperatureCalculator extends Component {
 
     // 'onTemperatureChange' of the 'Celsius' 'TemperatureInput' is this component's 'handleCelsiusChange' method
     // 'onTemperatureChange' of the 'Fahrenheit' 'TemperatureInput' is this component's 'handleFahrenheitChange' method
+
+    console.log('>>>>>>>>>>>>>>>> TemperatureCalculator > RENDER !!!!!! > temperature: ', temperature , ' > scale: ', scale);
 
     return (
 

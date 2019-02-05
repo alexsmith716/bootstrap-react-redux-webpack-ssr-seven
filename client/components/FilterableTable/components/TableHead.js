@@ -10,8 +10,10 @@ class TableHead extends Component {
 
     super(props);
 
+    this.tableHeadIntervalChange = this.tableHeadIntervalChange.bind(this);
+
+    // set initial render headingColor
     this.state = {
-      // headingColor: this.getRandomAlert()
       headingColor: 'default'
     };
   }
@@ -21,27 +23,19 @@ class TableHead extends Component {
     heading: PropTypes.array,
   };
 
-  static defaultProps = {
-    //
-  };
+  // static defaultProps = {};
 
   componentDidMount() {
-    console.log('>>>>>>>>>>>>>>>> TABLEHEAD > componentDidMount <<<<<<<<<<<<<<<<<<<<<<');
-    this.timerID = setInterval( () => this.callbackFunction(), 5000 );
+    // console.log('>>>>>>>>>>>>>>>> TABLEHEAD > componentDidMount <<<<<<<<<<<<<<<<<<<<<<');
   }
 
   componentWillUnmount() {
-    console.log('>>>>>>>>>>>>>>>> TABLEHEAD > componentWillUnmount <<<<<<<<<<<<<<<<<<<<<<');
-    clearInterval(this.timerID);
+    // console.log('>>>>>>>>>>>>>>>> TABLEHEAD > componentWillUnmount <<<<<<<<<<<<<<<<<<<<<<');
   }
 
-  getRandomAlert = () => {
-    const alerts = ['active','default', 'primary','secondary','success','danger','warning','info','light', 'dark'];
-    const randomAlert = alerts[ Math.floor( Math.random() * alerts.length ) ];
-    return randomAlert;
+  tableHeadIntervalChange = (headingColor) => {
+    this.setState( { headingColor } );
   }
-
-  callbackFunction = () => this.setState({ headingColor: this.getRandomAlert() });
 
   render() {
 
@@ -51,9 +45,9 @@ class TableHead extends Component {
 
     let rows = [];
 
-    rows.push( <TableRow type="thead" colSpan={ this.props.heading.length } category={ this.props.category } headingColor={ headingColor } key="thead-category" /> );
+    rows.push( <TableRow type="thead" colSpan={this.props.heading.length} category={this.props.category} headingColor={headingColor} onIntervalChange={this.tableHeadIntervalChange} key="thead-category" /> );
 
-    rows.push( <TableRow type="thead" data={ this.props.heading } key={ this.props.heading } /> );
+    rows.push( <TableRow type="thead" data={this.props.heading} key={this.props.heading} /> );
 
     // console.log('>>>>>>>>>>>>>>>> TABLEHEAD !!!!!!! > rows:', rows);
 

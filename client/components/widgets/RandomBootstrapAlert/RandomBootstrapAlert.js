@@ -13,7 +13,7 @@ class RandomBootstrapAlert extends Component {
 
   componentDidMount() {
     // register function to be invoked repeatedly after elapse of 1 sec
-    this.timerID = setInterval( () => this.callbackFunction(), 5000 );
+    this.timerID = setInterval( () => this.callbackFunction(), 3000 );
   }
 
   componentWillUnmount() {
