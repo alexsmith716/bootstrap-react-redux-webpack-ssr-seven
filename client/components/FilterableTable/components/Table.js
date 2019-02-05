@@ -12,20 +12,24 @@ class Table extends Component {
 
     super(props);
 
-    // this.state = {
-
-    // };
+    // this.state = {};
   }
 
   static propTypes = {
     data: PropTypes.object.isRequired,
   };
 
+  componentDidMount() {
+    console.log('>>>>>>>>>>>>>>>> TABLE > componentDidMount <<<<<<<<<<<<<<<<<<<<<<');
+  }
+
+  componentWillUnmount() {
+    console.log('>>>>>>>>>>>>>>>> TABLE > componentWillUnmount <<<<<<<<<<<<<<<<<<<<<<');
+  }
+
   render() {
 
     const styles = require('./scss/Table.scss');
-
-    // console.log('>>>>>>>>>>>>>>>> Table !!!!!!! > this.props.DATA:', this.props.data);
 
     return (
 

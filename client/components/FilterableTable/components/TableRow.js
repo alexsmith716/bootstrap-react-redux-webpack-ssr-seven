@@ -15,20 +15,16 @@ class TableRow extends Component {
 
   static propTypes = {
     type: PropTypes.string,
-    className: PropTypes.string,
     colSpan: PropTypes.number,
     category: PropTypes.string,
+    headingColor: PropTypes.string,
     data: PropTypes.array
   };
 
-  static defaultProps = {
-    // type: null,
-    // className: null
-  };
+  // static defaultProps = {};
 
   render() {
 
-    // console.log('>>>>>>>>>>>>>>>> TableRow > this.props.className:', this.props.className);
     // console.log('>>>>>>>>>>>>>>>> TableRow > this.props.category:', this.props.category);
     // console.log('>>>>>>>>>>>>>>>> TableRow > this.props.colSpan:', this.props.colSpan);
     // console.log('>>>>>>>>>>>>>>>> TableRow > this.props.data:', this.props.data);
@@ -37,13 +33,13 @@ class TableRow extends Component {
 
     if (this.props.type) {
 
-      if (this.props.className) {
+      if (this.props.colSpan) {
 
         // console.log('>>>>>>>>>>>>>>>> TableRow > 111111111111111111 <<<<<<<<<<<<<<');
 
         return (
 
-          <tr className="table-info">
+          <tr className={`table-${this.props.headingColor}`}>
 
             <th colSpan={this.props.colSpan}>{`${this.props.category.toUpperCase()} `}</th>
 
