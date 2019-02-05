@@ -23,6 +23,22 @@ class TemperatureInput extends Component {
     onTemperatureChange: PropTypes.func
   };
 
+  componentDidMount() {
+    console.log('>>>>>>>>>>>>>>>> TemperatureInput > componentDidMount <<<<<<<<<<<<<<<<<<<<<<');
+  }
+
+  componentWillUnmount() {
+    console.log('>>>>>>>>>>>>>>>> TemperatureInput > componentWillUnmount <<<<<<<<<<<<<<<<<<<<<<');
+  }
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log('>>>>>>>>>>>>>>>> TemperatureInput > shouldComponentUpdate <<<<<<<<<<<<<<<<<<<<<<');
+  // };
+
+  // static getDerivedStateFromProps(props, state) {
+  //   console.log('>>>>>>>>>>>>>>>> TemperatureInput > getDerivedStateFromProps <<<<<<<<<<<<<<<<<<<<<<');
+  // };
+
   // -----------------------------------------------------------
 
   // 'handleChange' calling prop method 'onTemperatureChange'
@@ -36,6 +52,8 @@ class TemperatureInput extends Component {
 
     const temperature = this.props.temperature;
     const scale = this.props.scale;
+
+    console.log('>>>>>>>>>>>>>>>> TemperatureInput > RENDER !!!!!! > temperature: ', temperature , ' > scale: ', scale);
 
     return (
 

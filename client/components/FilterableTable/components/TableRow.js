@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+// for 'Lifting State Up' main thing is the event affecting the state lives here
 
 class TableRow extends Component {
 
@@ -8,9 +9,7 @@ class TableRow extends Component {
 
     super(props);
 
-    // this.state = {
-
-    // };
+    // this.state = {};
   }
 
   static propTypes = {
@@ -18,10 +17,31 @@ class TableRow extends Component {
     colSpan: PropTypes.number,
     category: PropTypes.string,
     headingColor: PropTypes.string,
+    onIntervalChange: PropTypes.func,
     data: PropTypes.array
   };
 
   // static defaultProps = {};
+
+  componentDidMount() {
+    // console.log('>>>>>>>>>>>>>>>> TableRow > componentDidMount <<<<<<<<<<<<<<<<<<<<<<');
+    if (this.props.colSpan) {
+      this.timerID = setInterval( () => this.getRandomHeadingColor(), 5000 );
+    }
+  }
+
+  componentWillUnmount() {
+    // console.log('>>>>>>>>>>>>>>>> TableRow > componentWillUnmount <<<<<<<<<<<<<<<<<<<<<<');
+    if (this.props.colSpan) {
+      clearInterval(this.timerID);
+    }
+  }
+
+  getRandomHeadingColor = () => {
+    const classHeadingColor = ['active','primary','secondary','success','danger','warning','info','light', 'dark'];
+    const randomClassHeadingColor = classHeadingColor[ Math.floor( Math.random() * classHeadingColor.length ) ];
+    this.props.onIntervalChange(randomClassHeadingColor);
+  }
 
   render() {
 

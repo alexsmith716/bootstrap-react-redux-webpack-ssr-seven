@@ -77,7 +77,7 @@ class ReduxAsyncConnect extends Component {
   // invoked right before calling the render method, both on the initial mount and on subsequent updates
   // invoked after a component is instantiated as well as before it is re-rendered
   // can return an object to update state, or null to indicate that the new props do not require any state updates
-  // update the state, or update nothing
+  // updates the state based on props or update nothing
   static getDerivedStateFromProps(props, state) {
 
     console.log('>>>>>>>>>>>>>>>> ReduxAsyncConnect > getDerivedStateFromProps() > props.location: ', props.location);
