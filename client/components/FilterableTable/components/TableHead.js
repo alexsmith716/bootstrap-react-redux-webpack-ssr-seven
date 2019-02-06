@@ -26,7 +26,7 @@ class TableHead extends Component {
   // static defaultProps = {};
 
   componentDidMount() {
-    // console.log('>>>>>>>>>>>>>>>> TABLEHEAD > componentDidMount <<<<<<<<<<<<<<<<<<<<<<');
+    console.log('>>>>>>>>>>>>>>>> TABLEHEAD > componentDidMount <<<<<<<<<<<<<<<<<<<<<<');
   }
 
   componentWillUnmount() {

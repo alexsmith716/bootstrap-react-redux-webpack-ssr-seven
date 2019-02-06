@@ -73,6 +73,7 @@ const webpackConfig = {
 
   entry: {
     main: [
+      '@babel/polyfill',
       `webpack-hot-middleware/client?path=http://${host}:${port}/__webpack_hmr`,
       // 'webpack-hot-middleware/client?reload=true',
       // 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=false&quiet=false&noInfo=false',

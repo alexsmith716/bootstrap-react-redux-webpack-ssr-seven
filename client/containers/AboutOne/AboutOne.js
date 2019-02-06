@@ -37,7 +37,6 @@ class AboutOne extends Component {
 
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis?</p>
 
-
         <div className="row">
 
           <div className="col-lg-12 mb-4">
@@ -109,7 +108,15 @@ class AboutOne extends Component {
                   Lifting State Up
                 </h5>
 
-                <TemperatureCalculator />
+                <div className={`d-flex justify-content-center ${styles.temperatureCalculatorContainer}`}>
+
+                  <div className={`${styles.temperatureCalculatorForm}`}>
+
+                    <TemperatureCalculator />
+
+                  </div>
+
+                </div>
 
               </div>
             </div>

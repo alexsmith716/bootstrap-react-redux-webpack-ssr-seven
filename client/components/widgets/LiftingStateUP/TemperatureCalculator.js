@@ -78,7 +78,7 @@ class TemperatureCalculator extends Component {
     const celsius = scale === 'f' ? tryConvert(temperature, toCelsius) : temperature;
     const fahrenheit = scale === 'c' ? tryConvert(temperature, toFahrenheit) : temperature;
 
-    const styles = require('./scss/TemperatureCalculator.scss');
+    // const styles = require('./scss/TemperatureCalculator.scss');
 
     // FIRE JS EVENT HANDLER: 'onChange'
     // 'onChange' event initiates 'this.handleChange'
@@ -94,31 +94,26 @@ class TemperatureCalculator extends Component {
 
     return (
 
-      <div className={styles.tableContainer}>
+      <div>
 
-        <div className={styles.tableSearchContainer}>
+        <form>
 
-          <div className={styles.tableSearch}>
+          <TemperatureInput
+            scale="c"
+            temperature={ celsius }
+            onTemperatureChange={ this.handleCelsiusChange } />
 
-              <form>
+          <TemperatureInput
+            scale="f"
+            temperature={ fahrenheit }
+            onTemperatureChange={ this.handleFahrenheitChange } />
 
-                <TemperatureInput
-                  scale="c"
-                  temperature={ celsius }
-                  onTemperatureChange={ this.handleCelsiusChange } />
+        </form>
 
-                <TemperatureInput
-                  scale="f"
-                  temperature={ fahrenheit }
-                  onTemperatureChange={ this.handleFahrenheitChange } />
+        <BoilingVerdict celsius={ parseFloat(celsius) } />
 
-                <BoilingVerdict celsius={ parseFloat(celsius) } />
-
-              </form>
-
-            </div>
-          </div>
       </div>
+
     );
   }
 };
