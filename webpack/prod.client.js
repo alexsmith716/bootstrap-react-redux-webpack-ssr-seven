@@ -48,6 +48,7 @@ module.exports = {
 
   entry: {
     main: [
+      '@babel/polyfill',
       path.resolve(__dirname, '../client/assets/scss/bootstrap/bootstrap.global.scss'),
       'bootstrap',
       path.resolve(__dirname, '../client/index.js')

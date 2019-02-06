@@ -4,3 +4,18 @@
 .uniqueColor {
   color: #00CED1; // darkturquoise
 }
+
+.temperatureCalculatorContainer {
+  padding: calculate-rem(10px);
+  border: calculate-rem(1px) solid #d8dee2;
+  border-radius: calculate-rem(6px);
+  background-color: #F4F4F4;
+}
+
+.temperatureCalculatorForm {
+  padding: calculate-rem(10px);
+  background-color: #FFFFF0;
+  border: calculate-rem(1px) solid #d8dee2;
+  border-radius: calculate-rem(3px);
+  width: calculate-rem(400px);
+}
