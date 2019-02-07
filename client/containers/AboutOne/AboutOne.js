@@ -85,7 +85,15 @@ class AboutOne extends Component {
                   Filterable Product Table
                 </h5>
 
-                <AxiosComponentLoaderBasic component={FilterableTable} requestURL={uri} />
+                <div className={`${styles.cardBodyContainer}`}>
+
+                  <div className={`${styles.cardBodyContent}`}>
+
+                    <AxiosComponentLoaderBasic component={FilterableTable} requestURL={uri} />
+
+                  </div>
+
+                </div>
 
               </div>
             </div>
@@ -108,9 +116,9 @@ class AboutOne extends Component {
                   Lifting State Up
                 </h5>
 
-                <div className={`d-flex justify-content-center ${styles.temperatureCalculatorContainer}`}>
+                <div className={`${styles.cardBodyContainer}`}>
 
-                  <div className={`${styles.temperatureCalculatorForm}`}>
+                  <div className={`${styles.cardBodyContent}`}>
 
                     <TemperatureCalculator />
 

@@ -1,29 +1,3 @@
 @import '../../../sharedresources.scss';
 
-.tableContainer {
-  // width: calculate-rem(650px);
-  padding: calculate-rem(2px);
-
-  background-color: #F4F4F4;
-
-  border: calculate-rem(1px) solid #d8dee2;
-  border-radius: calculate-rem(6px);
-}
-
-.tableSearchContainer {
-
-  padding: calculate-rem(10px);
-  background-color: #FFFFF0;
-
-  border: calculate-rem(1px) solid #d8dee2;
-  border-radius: calculate-rem(3px);
-
-  // margin: 0 0 2px 0;
-
-  .tableSearch {
-    width: calculate-rem(400px);
-  }
-
-  display: flex;
-}
-
+// .temperatureCalculator {}

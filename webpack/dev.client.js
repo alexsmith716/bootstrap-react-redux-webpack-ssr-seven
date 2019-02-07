@@ -39,7 +39,7 @@ if (process.env.WEBPACK_DLLS === '1' && !validDLLs) {
 // 'Buffer.from(string[, encoding])': returns a new Buffer that contains a copy of the provided string
 // 'Buffer.from('hello world', 'ascii')'
 // strings are immutable (will return new string, not modify)
-// ident unique based on sscss directory
+// ident unique based on scss directory
 const generatedIdent = (name, localName, lr) => {
   const r = Buffer.from(lr).toString('base64');
   return name + '__' + localName + '--' + r.substring( r.length-12, r.length-3 );
@@ -73,7 +73,6 @@ const webpackConfig = {
 
   entry: {
     main: [
-      '@babel/polyfill',
       `webpack-hot-middleware/client?path=http://${host}:${port}/__webpack_hmr`,
       // 'webpack-hot-middleware/client?reload=true',
       // 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=false&quiet=false&noInfo=false',

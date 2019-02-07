@@ -104,6 +104,72 @@ hr.light {
   font-size: 90%;
 }
 
+.width-100 {
+  width: calculate-rem(100px);
+}
+
+.width-200 {
+  width: calculate-rem(200px);
+}
+
+.width-300 {
+  width: calculate-rem(300px);
+}
+
+.width-400 {
+  width: calculate-rem(400px);
+}
+
+.width-500 {
+  width: calculate-rem(500px);
+}
+
+.width-600 {
+  width: calculate-rem(600px);
+}
+
+.width-800 {
+  width: calculate-rem(800px);
+}
+
+.width-one-quarter {
+  width: 25%;
+}
+
+.width-one-third {
+  width: 33%;
+}
+
+.width-one-half {
+  width: 50%;
+}
+
+.width-three-quarters {
+  width: 75%;
+}
+
+.form-container-flex {
+  display: flex;
+}
+
+.container-padding-border-radius-1 {
+  padding: calculate-rem(10px);
+  border: calculate-rem(1px) solid #d8dee2;
+  border-radius: calculate-rem(3px);
+}
+
+.container-padding-border-radius-2 {
+  padding: calculate-rem(10px);
+  border: calculate-rem(2px) solid #d8dee2;
+  border-radius: calculate-rem(3px);
+}
+
+.container-padding-border-radius-3 {
+  padding: calculate-rem(10px);
+  border: calculate-rem(4px) solid #d8dee2;
+  border-radius: calculate-rem(3px);
+}
+
 // ---------------------------------------------------------------
 // GLOBAL @imports
 // ---------------------------------------------------------------
