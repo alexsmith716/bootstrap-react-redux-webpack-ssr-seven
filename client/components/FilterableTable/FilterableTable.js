@@ -74,11 +74,10 @@ class FilterableTable extends Component {
 
     return (
 
-      <div className={styles.filterableProductTableContainer}>
+      <div className={`container-padding-border-radius-2`}>
 
-        <div className={styles.tableSearchContainer}>
-
-          <div className={styles.tableSearch}>
+        <div className="form-container-flex bg-color-ivory container-padding-border-radius-1">
+          <div className="width-400">
 
             <SearchBar 
               filterText={ this.state.filterText }
@@ -88,12 +87,11 @@ class FilterableTable extends Component {
             />
 
           </div>
-
         </div>
 
         <br />
 
-        <div className={styles.tableContainer}>
+        <div>
 
           <Tables 
             tablesData={ this.props.content } 
@@ -104,7 +102,6 @@ class FilterableTable extends Component {
         </div>
 
       </div>
-
     );
   }
 }
