@@ -76,7 +76,7 @@ class FilterableTable extends Component {
 
       <div className={`container-padding-border-radius-2`}>
 
-        <div className="form-container-flex bg-color-ivory container-padding-border-radius-1">
+        <div className="container-flex bg-color-ivory container-padding-border-radius-1">
           <div className="width-400">
 
             <SearchBar 
